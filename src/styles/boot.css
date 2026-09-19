@@ -1,0 +1,204 @@
+/* =========================================================================
+   BOOT SEQUENCE STYLES
+   Cinematic Operating System Initialization Screen
+   ========================================================================= */
+
+.boot-container {
+  position: fixed;
+  inset: 0;
+  background-color: #020403;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+}
+
+.boot-window {
+  width: 100%;
+  max-width: 680px;
+  background: rgba(6, 11, 8, 0.94);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 50px rgba(0, 255, 102, 0.2), inset 0 0 20px rgba(0, 0, 0, 0.9);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.boot-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(0, 30, 12, 0.5);
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--matrix-green);
+}
+
+.boot-topbar-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.boot-indicators {
+  display: flex;
+  gap: 6px;
+}
+
+.boot-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--matrix-green-dark);
+}
+
+.boot-indicator.active {
+  background: var(--matrix-green);
+  box-shadow: 0 0 8px var(--matrix-green);
+}
+
+.boot-body {
+  padding: 28px 24px;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.boot-terminal-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.boot-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  word-break: break-all;
+}
+
+.boot-line-text {
+  color: #a7f3d0;
+}
+
+.boot-line-status {
+  font-weight: 700;
+  color: var(--matrix-green);
+  text-shadow: 0 0 8px var(--matrix-glow);
+}
+
+.boot-line.highlight .boot-line-text {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.boot-line.player-name {
+  color: var(--cyber-cyan);
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-shadow: 0 0 10px var(--cyber-cyan-glow);
+  padding: 4px 0;
+}
+
+.boot-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background-color: var(--matrix-green);
+  margin-left: 6px;
+  vertical-align: middle;
+  animation: cursor-blink 0.8s infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.boot-complete-panel {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.boot-welcome-label {
+  font-family: var(--font-voxel);
+  color: var(--matrix-green);
+  font-size: 0.85rem;
+  text-align: center;
+  letter-spacing: 0.1em;
+  margin-bottom: 18px;
+}
+
+.boot-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.boot-skip-control {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.boot-skip-btn {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.boot-skip-btn:hover {
+  color: var(--matrix-green);
+}
+
+.boot-remember-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.boot-remember-label input[type="checkbox"] {
+  accent-color: var(--matrix-green);
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .boot-window {
+    max-height: 90vh;
+  }
+  .boot-actions {
+    flex-direction: column;
+  }
+  .boot-actions button {
+    width: 100%;
+  }
+}

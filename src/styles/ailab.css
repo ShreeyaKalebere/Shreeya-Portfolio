@@ -1,0 +1,259 @@
+/* =========================================================================
+   AI ENGINEERING DISTRICT & AI LAB STYLES
+   Futuristic Neural Lab Visualizer & Interactive Pipeline Modules
+   ========================================================================= */
+
+.ai-lab-section {
+  padding: 80px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.ai-lab-container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* AI Lab Master Control Deck */
+.ai-deck-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* Neural Network Visualizer Panel */
+.neural-visualizer-panel {
+  background: rgba(8, 14, 11, 0.9);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.neural-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--matrix-green);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 12px;
+}
+
+.neural-canvas-wrap {
+  width: 100%;
+  height: 260px;
+  position: relative;
+  background: radial-gradient(circle at center, rgba(0, 255, 102, 0.05) 0%, rgba(3, 6, 5, 0.6) 80%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.neural-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.neural-node {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.neural-node:hover {
+  r: 9;
+  filter: drop-shadow(0 0 10px #00ff66);
+}
+
+.synapse-line {
+  stroke: rgba(0, 255, 102, 0.25);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+  animation: synapseFlow 2.5s linear infinite;
+}
+
+.synapse-line.active {
+  stroke: var(--cyber-cyan);
+  stroke-width: 2;
+  opacity: 0.8;
+}
+
+@keyframes synapseFlow {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+/* Diagnostic Telemetry Terminal in AI Lab */
+.ai-telemetry-box {
+  margin-top: 18px;
+  background: rgba(3, 6, 5, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.telemetry-row {
+  display: flex;
+  justify-content: space-between;
+  color: #a7f3d0;
+}
+
+.telemetry-val {
+  font-weight: 700;
+  color: var(--matrix-green);
+}
+
+/* AI Labs Sidebar Selector Column */
+.ai-modules-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ai-module-card {
+  background: rgba(10, 18, 14, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all var(--trans-normal);
+  text-align: left;
+}
+
+.ai-module-card:hover,
+.ai-module-card.active {
+  background: rgba(16, 28, 22, 0.95);
+  border-color: var(--matrix-green);
+  box-shadow: 0 0 20px var(--matrix-glow-subtle);
+  transform: translateX(4px);
+}
+
+.ai-module-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.ai-module-title {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ai-module-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(0, 255, 102, 0.1);
+  color: var(--matrix-green);
+  border: 1px solid var(--border-subtle);
+}
+
+.ai-module-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+
+.ai-module-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ai-tech-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: #cbd5e1;
+}
+
+/* Active Module Interactive Flow Diagram Box */
+.ai-active-pipeline-box {
+  background: rgba(6, 11, 8, 0.95);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-top: 10px;
+}
+
+.pipeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--cyber-cyan);
+}
+
+.pipeline-flow-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.pipeline-node-box {
+  flex: 1;
+  min-width: 140px;
+  background: rgba(0, 255, 102, 0.04);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  text-align: center;
+  position: relative;
+}
+
+.pipeline-node-step {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.pipeline-node-label {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pipeline-arrow {
+  color: var(--matrix-green);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 990px) {
+  .ai-deck-grid {
+    grid-template-columns: 1fr;
+  }
+}

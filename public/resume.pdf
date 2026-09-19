@@ -1,0 +1,73 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 4000 >>
+stream
+BT /F2 22 Tf 50 760 Td (SHREEYA KALEBERE) Tj ET
+BT /F2 14 Tf 50 738 Td (SOFTWARE ENGINEER x AI ENGINEER) Tj ET
+BT /F1 10 Tf 50 720 Td (B.Tech Computer Science & Engineering | D.Y. Patil College of Engineering & Technology) Tj ET
+BT /F1 10 Tf 50 706 Td (CGPA: 9.6 / 10 | Academic Standing: Rank 2nd among 287 students \(Top 1%\) | Class of 2027) Tj ET
+BT /F1 9 Tf 50 690 Td (GitHub: https://github.com/ShreeyaKalebere  |  LinkedIn: https://linkedin.com/in/shreeya-kalebere) Tj ET
+0.5 w 0.2 0.8 0.4 RG 50 678 m 562 678 l S
+BT /F2 12 Tf 50 660 Td (PROFILE SUMMARY) Tj ET
+BT /F1 9.5 Tf 50 644 Td (Dedicated Computer Science Engineering student focused on building robust full-stack software and intelligent) Tj ET
+BT /F1 9.5 Tf 50 632 Td (AI/ML systems. Combining deep software engineering fundamentals \(DSA, systems, OOP, DBMS, MERN\)) Tj ET
+BT /F1 9.5 Tf 50 620 Td (with applied computer vision \(YOLO, OpenCV, PyTorch\) and autonomous agent architectures.) Tj ET
+BT /F2 12 Tf 50 598 Td (EDUCATION & ACADEMICS) Tj ET
+BT /F2 10 Tf 50 582 Td (Bachelor of Technology \(B.Tech\) in Computer Science & Engineering) Tj ET
+BT /F1 9.5 Tf 50 570 Td (D.Y. Patil College of Engineering and Technology | Expected Graduation: 2027) Tj ET
+BT /F1 9.5 Tf 50 558 Td (CGPA: 9.6 / 10.0 \(Rank 2 / 287 in Department\)) Tj ET
+BT /F1 9 Tf 50 544 Td (Relevant Coursework: Data Structures & Algorithms, Operating Systems, DBMS, OOP, Web Development,) Tj ET
+BT /F1 9 Tf 50 532 Td (Computer Networks, Machine Learning, Python Programming, Network Security, Robotics, AR/VR.) Tj ET
+BT /F2 12 Tf 50 510 Td (TECHNICAL SKILLS) Tj ET
+BT /F1 9.5 Tf 50 494 Td (Languages: Python, Java, C++, JavaScript, SQL) Tj ET
+BT /F1 9.5 Tf 50 480 Td (Software & Web: React, Node.js, Express.js, MERN Stack, REST APIs, Git, GitHub) Tj ET
+BT /F1 9.5 Tf 50 466 Td (AI & Computer Vision: Machine Learning, Computer Vision, YOLO, OpenCV, PyTorch, TensorFlow, AI Agents) Tj ET
+BT /F1 9.5 Tf 50 452 Td (Databases & Tools: MongoDB, PostgreSQL, SQL, Docker, FastAPI) Tj ET
+BT /F2 12 Tf 50 430 Td (KEY ENGINEERING & RESEARCH PROJECTS) Tj ET
+BT /F2 10 Tf 50 414 Td (Food Safe - Full-Stack / AI Food Safety & OCR Platform \(MERN, OCR, AI\)) Tj ET
+BT /F1 9 Tf 50 402 Td (- Developed full-stack food information and label analysis platform assessing ingredient safety transparency.) Tj ET
+BT /F2 10 Tf 50 386 Td (Orchestrix AI Agent - Autonomous Intelligent Agent System \(Python, FastAPI\)) Tj ET
+BT /F1 9 Tf 50 374 Td (- Structured cognitive reasoning pipeline: Input -> Agent -> Reasoning / Workflow -> Action -> Output.) Tj ET
+BT /F2 10 Tf 50 358 Td (Pothole & Road Distress Detection - Computer Vision Research \(YOLO, OpenCV, Python\)) Tj ET
+BT /F1 9 Tf 50 346 Td (- Active research on Pothole-600 dataset evaluating road crack anomalies and Low/Med/High severity scoring.) Tj ET
+BT /F2 10 Tf 50 330 Td (AI Space Information Chatbot - Celestial Telemetry Explorer \(Python, FastAPI\)) Tj ET
+BT /F1 9 Tf 50 318 Td (- Interactive terminal interface delivering astronomical telemetry, spacecraft metrics, and planetary data.) Tj ET
+BT /F2 10 Tf 50 302 Td (MultiRecon - Multi-Modal Medical Imaging Research Concept \(MONAI, PyTorch, YOLO, FastAPI, Docker\)) Tj ET
+BT /F1 9 Tf 50 290 Td (- Academic research exploring volumetric segmentation across X-ray, MRI, and CT imaging formats \(Non-clinical\).) Tj ET
+BT /F2 12 Tf 50 268 Td (HONORS & LEADERSHIP) Tj ET
+BT /F1 9.5 Tf 50 252 Td (- Eureka Hackathon: 3rd Prize Winner for collaborative technological prototyping.) Tj ET
+BT /F1 9.5 Tf 50 238 Td (- National Talent Search Examination \(NTSE\): Qualified Level 1 & Level 2 National Merit.) Tj ET
+BT /F1 9.5 Tf 50 224 Td (- SOF / IMO Olympiads: Distinction standing in International Mathematics Olympiad.) Tj ET
+BT /F1 9.5 Tf 50 210 Td (- Class Representative: Elected representative for 60+ Computer Science Engineering cohort.) Tj ET
+BT /F1 9.5 Tf 50 196 Td (- ISRO Certification Program: Climate Change and Aerosol Management remote sensing course.) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000244 00000 n 
+0000000000 00000 n 
+0000000000 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+4300
+%%EOF

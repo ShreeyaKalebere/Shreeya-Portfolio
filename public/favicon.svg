@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="12" fill="#050807" />
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="#00ff66" stroke-width="2" stroke-opacity="0.6" />
+  <!-- Isometric Voxel 'S' Cube Design -->
+  <!-- Top Face -->
+  <polygon points="32,8 52,18 32,28 12,18" fill="#00ff66" />
+  <!-- Left Face -->
+  <polygon points="12,18 32,28 32,48 12,38" fill="#059669" />
+  <!-- Right Face -->
+  <polygon points="32,28 52,18 52,38 32,48" fill="#10b981" />
+  <!-- Center Glow Matrix Core -->
+  <circle cx="32" cy="28" r="4" fill="#00f0ff" />
+  <!-- Accent Matrix Pixel Dots -->
+  <rect x="18" y="44" width="4" height="4" fill="#00ff66" />
+  <rect x="42" y="44" width="4" height="4" fill="#00ff66" />
+  <rect x="30" y="52" width="4" height="4" fill="#00f0ff" />
+</svg>

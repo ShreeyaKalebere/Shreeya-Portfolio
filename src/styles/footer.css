@@ -1,0 +1,109 @@
+/* =========================================================================
+   FOOTER STYLES
+   Clean, Professional, System-Status Anchored
+   ========================================================================= */
+
+.site-footer {
+  background: rgba(3, 6, 5, 0.98);
+  border-top: 1px solid var(--border-medium);
+  padding: 60px 0 30px;
+  position: relative;
+  z-index: 20;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.footer-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-identity-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.footer-role {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--matrix-green);
+}
+
+.footer-disciplines {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.footer-links-col {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 8px 14px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--trans-fast);
+}
+
+.footer-nav-link:hover {
+  color: var(--matrix-green);
+  border-color: var(--matrix-green);
+  background: rgba(0, 255, 102, 0.1);
+  transform: translateY(-2px);
+}
+
+.footer-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-system-telemetry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--matrix-green);
+}
+
+.footer-status-blip {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--matrix-green);
+  box-shadow: 0 0 8px var(--matrix-green);
+}

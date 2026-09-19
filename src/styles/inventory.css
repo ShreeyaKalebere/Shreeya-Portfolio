@@ -1,0 +1,354 @@
+/* =========================================================================
+   MINECRAFT INVENTORY & ENGINEERING CORE STYLES
+   ========================================================================= */
+
+.engineering-section {
+  padding: 80px 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Buildings of the Software Engineering District */
+.district-buildings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.district-building-card {
+  background: rgba(10, 18, 14, 0.9);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  transition: all var(--trans-normal);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.district-building-card:hover {
+  border-color: var(--matrix-green);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 255, 102, 0.15);
+}
+
+.building-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.building-code {
+  color: var(--cyber-cyan);
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.building-status {
+  color: var(--matrix-green);
+  background: rgba(0, 255, 102, 0.08);
+  border: 1px solid var(--border-subtle);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.68rem;
+}
+
+.building-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.building-icon-box {
+  width: 38px;
+  height: 38px;
+  background: rgba(0, 255, 102, 0.1);
+  border: 1px solid var(--border-medium);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--matrix-green);
+  flex-shrink: 0;
+}
+
+.building-title {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+
+.building-role {
+  font-size: 0.85rem;
+  color: #a7f3d0;
+  margin-bottom: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.building-specs-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 12px;
+}
+
+.building-spec-item {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: #cbd5e1;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.45;
+}
+
+.building-spec-dot {
+  color: var(--matrix-green);
+  font-weight: bold;
+}
+}
+
+.building-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.building-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #a7f3d0;
+}
+
+/* =========================================================================
+   MINECRAFT INVENTORY MATRIX
+   ========================================================================= */
+
+.inventory-wrapper {
+  background: rgba(7, 13, 10, 0.95);
+  border: 2px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), inset 0 0 24px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.inventory-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.inventory-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.inventory-title {
+  font-family: var(--font-voxel);
+  font-size: 1.1rem;
+  color: var(--matrix-green);
+  letter-spacing: 0.06em;
+}
+
+.inventory-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.inventory-tab-btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 6px 14px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  transition: all var(--trans-fast);
+}
+
+.inventory-tab-btn:hover,
+.inventory-tab-btn.active {
+  background: rgba(0, 255, 102, 0.15);
+  border-color: var(--matrix-green);
+  color: var(--matrix-green);
+}
+
+/* 9-Slot Hotbar */
+.hotbar-section {
+  margin-bottom: 30px;
+  padding-bottom: 24px;
+  border-bottom: 1px dashed var(--border-subtle);
+}
+
+.hotbar-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hotbar-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 10px;
+}
+
+/* Complete 27-slot Inventory Grid */
+.inventory-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
+  gap: 12px;
+}
+
+/* Individual Minecraft Inventory Slot */
+.inventory-slot {
+  aspect-ratio: 1 / 1;
+  background: #0d1712;
+  border: 2px solid #1a2f23;
+  border-top-color: #0b1510;
+  border-left-color: #0b1510;
+  border-right-color: #274534;
+  border-bottom-color: #274534;
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--trans-fast);
+  cursor: pointer;
+}
+
+.inventory-slot:hover {
+  border-color: var(--matrix-green);
+  background: #15241d;
+  transform: scale(1.06);
+  box-shadow: 0 0 16px var(--matrix-glow);
+  z-index: 50;
+}
+
+.inventory-slot.slot-legendary {
+  border-right-color: rgba(0, 255, 102, 0.5);
+  border-bottom-color: rgba(0, 255, 102, 0.5);
+}
+
+.inventory-slot.slot-epic {
+  border-right-color: rgba(0, 240, 255, 0.5);
+  border-bottom-color: rgba(0, 240, 255, 0.5);
+}
+
+.slot-number {
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.slot-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--matrix-green);
+  transition: transform 0.2s ease;
+}
+
+.inventory-slot:hover .slot-icon-wrap {
+  transform: scale(1.15);
+}
+
+/* Tooltip on Hover */
+.slot-tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  background: rgba(3, 6, 5, 0.98);
+  border: 2px solid var(--matrix-green);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  pointer-events: none;
+  z-index: 999;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 20px var(--matrix-glow-subtle);
+  animation: tooltipFade 0.15s ease-out;
+}
+
+.tooltip-header {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.tooltip-category {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--cyber-cyan);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.tooltip-desc {
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+
+.tooltip-rarity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--matrix-green);
+}
+
+@keyframes tooltipFade {
+  from { opacity: 0; transform: translate(-50%, 6px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (max-width: 900px) {
+  .hotbar-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .hotbar-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

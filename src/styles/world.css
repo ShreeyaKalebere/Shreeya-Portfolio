@@ -1,0 +1,129 @@
+/* =========================================================================
+   3D VOXEL WORLD STYLES
+   Three.js Interactive Voxel Environment & HUD Overlays
+   ========================================================================= */
+
+.world-viewport-container {
+  position: relative;
+  width: 100%;
+  height: 540px;
+  background: radial-gradient(circle at center, #06110a 0%, #030605 100%);
+  border-top: 1px solid var(--border-medium);
+  border-bottom: 1px solid var(--border-medium);
+  margin: 40px 0 60px 0;
+  overflow: hidden;
+}
+
+.world-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+}
+
+.world-canvas:active {
+  cursor: grabbing;
+}
+
+/* Floating HUD Controls inside the 3D viewport */
+.world-hud-overlay {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.world-title-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--matrix-green);
+  background: rgba(3, 6, 5, 0.85);
+  border: 1px solid var(--border-medium);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(8px);
+  pointer-events: auto;
+}
+
+.world-controls-hint {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  background: rgba(3, 6, 5, 0.85);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(8px);
+}
+
+.world-key-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+
+/* Floating District Selector Bar at Bottom of 3D Viewport */
+.world-district-bar {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  background: rgba(3, 6, 5, 0.9);
+  border: 1px solid var(--border-medium);
+  padding: 6px 10px;
+  border-radius: 30px;
+  backdrop-filter: blur(12px);
+  max-width: 95%;
+  overflow-x: auto;
+  z-index: 10;
+}
+
+.world-district-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: all var(--trans-fast);
+}
+
+.world-district-btn:hover,
+.world-district-btn.active {
+  color: var(--matrix-green);
+  background: rgba(0, 255, 102, 0.15);
+  box-shadow: 0 0 10px var(--matrix-glow-subtle);
+}
+
+@media (max-width: 768px) {
+  .world-viewport-container {
+    height: 380px;
+  }
+  .world-controls-hint {
+    display: none;
+  }
+}

@@ -1,0 +1,429 @@
+/* =========================================================================
+   NEO-FUTURIST × BENTO GRID × SWISS TYPOGRAPHY × PREMIUM NEO-BRUTALISM
+   Primary Dark Mode (#0A0A0A) · 90% Monochrome · 10% Purposeful Accents
+   1–2px Crisp Borders · Precision Geometry · Apple-Level Clarity
+   ========================================================================= */
+
+:root {
+  /* Dark Mode as the PRIMARY default visual experience */
+  --bg-primary: #0A0A0A;
+  --bg-surface: #111111;
+  --bg-card: #151515;
+  --bg-card-hover: #1A1A1A;
+  --bg-elevated: #1F1F1F;
+  --border-color: #262626;
+  --border-color-hover: #3F3F46;
+  --border-color-accent: #52525B;
+
+  --text-primary: #F5F5F0;
+  --text-muted: #A1A1AA;
+  --text-dim: #71717A;
+  --text-inverse: #0A0A0A;
+
+  /* Accents (Used Sparingly ~10%) */
+  --accent-blue: #4D9DE0;
+  --accent-purple: #8B5CF6;
+  --accent-green: #B7F34A;
+  --accent-amber: #F59E0B;
+
+  /* Borders & Shadows (1–2px Refined Neo-Brutalism) */
+  --border-width: 1px;
+  --border-width-thick: 2px;
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --shadow-subtle: 3px 3px 0 #181818;
+  --shadow-card: 4px 4px 0 #1E1E1E;
+  --shadow-hover: 6px 6px 0 #2E2E2E;
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Layout */
+  --max-width: 1240px;
+  --nav-height: 64px;
+}
+
+/* Light Mode Overrides (Crisp Swiss Editorial Paper) */
+html.light, html:not(.dark) {
+  --bg-primary: #F8F8F6;
+  --bg-surface: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F2F2EE;
+  --bg-elevated: #EBEBE7;
+  --border-color: #E2E2DC;
+  --border-color-hover: #A1A1AA;
+  --border-color-accent: #71717A;
+
+  --text-primary: #111111;
+  --text-muted: #52525B;
+  --text-dim: #71717A;
+  --text-inverse: #FFFFFF;
+
+  --shadow-subtle: 3px 3px 0 #E2E2DC;
+  --shadow-card: 4px 4px 0 #D4D4CE;
+  --shadow-hover: 6px 6px 0 #A1A19A;
+}
+
+/* Base Resets & Layout */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  scroll-behavior: smooth;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+html.light body, html:not(.dark) body {
+  background-image: 
+    radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-heading);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Container */
+.neo-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .neo-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* =========================================================================
+   SWISS SECTION HEADERS
+   ========================================================================= */
+.swiss-header {
+  margin-bottom: 40px;
+  border-top: var(--border-width) solid var(--border-color);
+  padding-top: 24px;
+}
+
+.swiss-header-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.swiss-header-num {
+  color: var(--accent-blue);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.swiss-title {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.swiss-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+/* =========================================================================
+   BENTO GRID ARCHITECTURE (12-COLUMN SWISS SYSTEM)
+   ========================================================================= */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 960px) {
+  .bento-grid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+.col-span-12 { grid-column: span 12 / span 12; }
+.col-span-8 { grid-column: span 8 / span 8; }
+.col-span-7 { grid-column: span 7 / span 7; }
+.col-span-6 { grid-column: span 6 / span 6; }
+.col-span-5 { grid-column: span 5 / span 5; }
+.col-span-4 { grid-column: span 4 / span 4; }
+.col-span-3 { grid-column: span 3 / span 3; }
+
+@media (max-width: 960px) {
+  .col-span-8, .col-span-7, .col-span-6 { grid-column: span 8 / span 8; }
+  .col-span-5, .col-span-4, .col-span-3 { grid-column: span 4 / span 4; }
+}
+
+@media (max-width: 640px) {
+  .col-span-12, .col-span-8, .col-span-7, .col-span-6, .col-span-5, .col-span-4, .col-span-3 {
+    grid-column: span 1 / span 1;
+  }
+}
+
+/* =========================================================================
+   BENTO CARD PRIMITIVES
+   ========================================================================= */
+.bento-card {
+  background: var(--bg-card);
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-subtle);
+  border-radius: var(--radius-none);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.18s ease, 
+              box-shadow 0.18s ease,
+              background-color 0.18s ease;
+}
+
+.bento-card:hover {
+  border-color: var(--border-color-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.bento-card-featured {
+  border-color: var(--border-color-accent);
+  background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-surface) 100%);
+}
+
+/* =========================================================================
+   PHYSICAL TACTILE BUTTONS (REFINED NEO-BRUTALISM)
+   ========================================================================= */
+.swiss-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 10px 18px;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-none);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-subtle);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+  user-select: none;
+}
+
+.swiss-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--text-primary);
+}
+
+.swiss-btn:active {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 0 var(--border-color);
+}
+
+.swiss-btn-primary {
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  border-color: var(--text-primary);
+}
+
+.swiss-btn-primary:hover {
+  background: #FFFFFF;
+  color: #0A0A0A;
+}
+
+.swiss-btn-accent {
+  background: var(--accent-blue);
+  color: #0A0A0A;
+  border-color: var(--accent-blue);
+}
+
+/* =========================================================================
+   EDITORIAL BADGES & DATAFLOW METAPHORS
+   ========================================================================= */
+.swiss-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border: var(--border-width) solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.swiss-badge-blue {
+  color: var(--accent-blue);
+  border-color: rgba(77, 157, 224, 0.4);
+}
+
+.swiss-badge-green {
+  color: var(--accent-green);
+  border-color: rgba(183, 243, 74, 0.4);
+}
+
+.swiss-badge-purple {
+  color: var(--accent-purple);
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+/* Abstract Engineering Dataflow Diagram */
+.dataflow-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: var(--bg-surface);
+  padding: 8px 12px;
+  border: var(--border-width) solid var(--border-color);
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.dataflow-node {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.dataflow-arrow {
+  color: var(--accent-blue);
+}
+
+/* General Spacing & Alignment Utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-1 { gap: 4px; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+.gap-6 { gap: 24px; }
+.gap-8 { gap: 32px; }
+
+.font-mono { font-family: var(--font-mono); }
+.font-sans { font-family: var(--font-body); }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.font-normal { font-weight: 400; }
+.uppercase { text-transform: uppercase; }
+
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-3xl { font-size: 1.875rem; }
+
+.text-muted { color: var(--text-muted); }
+.text-dim { color: var(--text-dim); }
+
+.w-full { width: 100%; }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Custom Inputs */
+.swiss-input {
+  width: 100%;
+  background: var(--bg-surface);
+  border: var(--border-width) solid var(--border-color);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 12px 16px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.swiss-input:focus {
+  border-color: var(--accent-blue);
+}
+
+/* Reduced Motion Mode Support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,251 @@
+/* =========================================================================
+   QUEST LOG & KNOWLEDGE ARCHIVE STYLES
+   Minecraft Quest Milestone Log × Enchanted Technical Tome
+   ========================================================================= */
+
+.quest-section,
+.education-section {
+  padding: 80px 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Quest Log Grid */
+.quest-log-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.quest-card {
+  background: rgba(10, 18, 14, 0.88);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: all var(--trans-normal);
+}
+
+.quest-card:hover {
+  border-color: var(--matrix-green);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 20px var(--matrix-glow-subtle);
+}
+
+.quest-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.quest-icon-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: rgba(0, 255, 102, 0.08);
+  border: 1px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--matrix-green);
+}
+
+.quest-xp-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.quest-title {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.quest-honor-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cyber-cyan);
+  margin-bottom: 12px;
+}
+
+.quest-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+.quest-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.quest-status-text {
+  color: var(--matrix-green);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* =========================================================================
+   KNOWLEDGE ARCHIVE (ENCHANTED TOME INTERFACE)
+   ========================================================================= */
+
+.enchanted-tome-wrapper {
+  background: radial-gradient(circle at top, rgba(14, 28, 20, 0.95) 0%, rgba(6, 11, 8, 0.98) 100%);
+  border: 2px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 35px var(--matrix-glow-subtle);
+  position: relative;
+}
+
+/* Academic Banner */
+.tome-academic-banner {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 32px;
+  align-items: center;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 36px;
+}
+
+.academic-degree-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.academic-institution {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--matrix-green);
+  margin-bottom: 16px;
+}
+
+.academic-rank-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid var(--border-cyan);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--cyber-cyan);
+}
+
+.academic-stat-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.academic-stat-box {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  text-align: center;
+}
+
+.academic-stat-val {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--matrix-green);
+}
+
+.academic-stat-lbl {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+/* Coursework Grid */
+.coursework-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.coursework-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.course-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  transition: all var(--trans-fast);
+}
+
+.course-card:hover {
+  border-color: var(--matrix-green);
+  background: rgba(0, 255, 102, 0.05);
+  transform: translateY(-2px);
+}
+
+.course-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.course-code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--matrix-green);
+  font-weight: 700;
+}
+
+.course-mastery {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.course-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.course-focus {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+@media (max-width: 860px) {
+  .tome-academic-banner {
+    grid-template-columns: 1fr;
+  }
+}

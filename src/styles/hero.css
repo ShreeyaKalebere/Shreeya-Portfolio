@@ -1,0 +1,261 @@
+/* =========================================================================
+   HERO / SPAWN & PLAYER PROFILE STYLES
+   Professional Photo Anchor × Futuristic Cybernetic HUD
+   ========================================================================= */
+
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - var(--hud-height));
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--hud-height) + 40px);
+  padding-bottom: 60px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* Hero Content Column */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero-system-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--matrix-green);
+  background: rgba(0, 255, 102, 0.08);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 14px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.hero-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero-name {
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.05;
+}
+
+.hero-title-highlight {
+  font-family: var(--font-mono);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  color: var(--matrix-green);
+  text-shadow: 0 0 16px var(--matrix-glow);
+  letter-spacing: 0.04em;
+}
+
+.hero-subdiscipline {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.hero-focus-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.focus-pill {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  border-radius: 4px;
+  color: #cbd5e1;
+  transition: all var(--trans-fast);
+}
+
+.focus-pill:hover {
+  background: rgba(0, 255, 102, 0.1);
+  border-color: var(--matrix-green);
+  color: var(--matrix-green);
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #94a3b8;
+  max-width: 620px;
+}
+
+/* Hero Action Buttons */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+/* Secondary Social & Contact Row */
+.hero-social-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.hero-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  transition: all var(--trans-fast);
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.hero-social-link:hover {
+  color: var(--matrix-green);
+  background: rgba(0, 255, 102, 0.08);
+}
+
+/* Photo & Player Profile HUD Column */
+.player-profile-card {
+  background: rgba(8, 14, 11, 0.88);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 255, 102, 0.15);
+  position: relative;
+  transition: all var(--trans-normal);
+}
+
+.player-profile-card:hover {
+  border-color: var(--matrix-green);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 35px var(--matrix-glow);
+}
+
+.profile-hud-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--matrix-green);
+  letter-spacing: 0.08em;
+}
+
+/* The Photo Frame: Pure, un-distorted, dignified photo with subtle cyberpunk glow */
+.profile-photo-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.8;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-medium);
+  background-color: #0c1410;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.player-profile-card:hover .profile-photo {
+  transform: scale(1.02);
+}
+
+/* Subtle holographic border overlay */
+.photo-hologram-border {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1px solid rgba(0, 255, 102, 0.3);
+  box-shadow: inset 0 0 16px rgba(0, 255, 102, 0.25);
+}
+
+/* HUD Telemetry Stats below photo */
+.profile-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.profile-stat-box {
+  background: rgba(0, 255, 102, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+}
+
+.stat-box-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.stat-box-value {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--matrix-green);
+}
+
+.profile-hud-footer {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .player-profile-card {
+    max-width: 440px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-section {
+    padding-top: calc(var(--hud-height) + 20px);
+  }
+}

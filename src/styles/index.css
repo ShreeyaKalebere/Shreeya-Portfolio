@@ -1,0 +1,30 @@
+/* =========================================================================
+   SWISS NEO-FUTURIST FOUNDATIONAL RESETS
+   ========================================================================= */
+
+/* Selection */
+::selection {
+  background: #2563EB;
+  color: #FFFFFF;
+}
+
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color-hover);
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blue);
+}
+
+/* Base utility for smooth transitions */
+.transition-all {
+  transition: all 0.15s ease;
+}

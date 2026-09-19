@@ -1,0 +1,88 @@
+/* =========================================================================
+   SWISS PRECISION CURSOR (DESKTOP ONLY)
+   Small Square + Tiny Crosshair · 1px Borders · Minimal Labels
+   ========================================================================= */
+
+@media (pointer: fine) and (hover: hover) {
+  body {
+    cursor: none;
+  }
+  a, button, input, select, textarea, [role="button"] {
+    cursor: none !important;
+  }
+}
+
+.swiss-cursor {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Precision central square */
+.cursor-square {
+  width: 6px;
+  height: 6px;
+  background-color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  transition: transform 0.12s ease, background-color 0.12s ease;
+}
+
+.swiss-cursor.active .cursor-square {
+  transform: scale(1.5);
+  background-color: var(--accent-blue);
+}
+
+/* Tiny crosshair */
+.cursor-crosshair {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.cursor-crosshair::before,
+.cursor-crosshair::after {
+  content: '';
+  position: absolute;
+  background-color: var(--text-muted);
+  opacity: 0.4;
+}
+
+.cursor-crosshair::before {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+.cursor-crosshair::after {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+/* Subtle Label Badge */
+.cursor-label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  white-space: nowrap;
+  box-shadow: 2px 2px 0 var(--border-color);
+}
