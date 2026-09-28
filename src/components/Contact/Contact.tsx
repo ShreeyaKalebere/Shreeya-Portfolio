@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PROFILE } from '../../data/profile';
-import { ArrowRight, Copy, Check, ExternalLink, Mail, AlertCircle, Loader2 } from 'lucide-react';
+import { ArrowRight, Copy, Check, ExternalLink, Mail, AlertCircle, Loader2, Send, Sparkles } from 'lucide-react';
+import { sound } from '../../utils/audio';
 
 interface FormData {
   name: string;
@@ -28,67 +29,78 @@ export const Contact: React.FC = () => {
   // Field validation helper
   const validateForm = (): string | null => {
     if (!formData.name.trim() || formData.name.trim().length < 2) {
-      return 'Please provide your name (at least 2 characters).';
+      return 'Please enter your name (at least 2 characters).';
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
-      return 'Please provide a valid email address.';
+      return 'Please enter a valid email address so I can reply back.';
     }
-    if (!formData.message.trim() || formData.message.trim().length < 10) {
-      return 'Please provide a meaningful message (at least 10 characters).';
+    if (!formData.message.trim() || formData.message.trim().length < 5) {
+      return 'Please write a message with at least 5 characters.';
     }
     return null;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     setErrorMessage(null);
+
+    // Bot trap check
+    if (formData._gotcha) {
+      e.preventDefault();
+      setSubmitted(true);
+      return;
+    }
 
     const validationError = validateForm();
     if (validationError) {
+      e.preventDefault();
       setErrorMessage(validationError);
       return;
     }
 
     setIsSubmitting(true);
+    sound.playScanSweep();
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-
-      const data = await response.json().catch(() => ({}));
-
-      if (response.ok && data.success) {
-        setSubmitted(true);
-        setFormData(INITIAL_FORM);
-      } else {
-        setErrorMessage(
-          data.error || 'Something went wrong while sending your message. Please try again or contact me directly.'
-        );
-      }
-    } catch (err) {
-      setErrorMessage(
-        'Network error encountered. Please verify your connection or reach out directly via email.'
-      );
-    } finally {
+    // The form natively posts to the hidden iframe target="formsubmit_frame"
+    // This avoids all browser CORS / AJAX restrictions and delivers straight to FormSubmit
+    setTimeout(() => {
       setIsSubmitting(false);
-    }
+      setSubmitted(true);
+      sound.playSuccessChime();
+    }, 600);
   };
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PROFILE.email);
     setCopied(true);
+    sound.playClick();
     setTimeout(() => setCopied(false), 2000);
   };
 
+  // Gmail Web Compose Pre-filled URL
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(PROFILE.email)}&su=${encodeURIComponent(formData.subject || `Inquiry from ${formData.name || 'Portfolio Visitor'}`)}&body=${encodeURIComponent(
+    formData.message 
+      ? `${formData.message}\n\n---\nFrom: ${formData.name || 'Visitor'} (${formData.email || 'No email provided'})`
+      : `Hi Shreeya,\n\nI would love to connect with you regarding opportunities / collaboration.\n\nBest,\n`
+  )}`;
+
+  // Default Mailto Pre-filled URL
+  const mailtoUrl = `mailto:${encodeURIComponent(PROFILE.email)}?subject=${encodeURIComponent(formData.subject || `Inquiry from ${formData.name || 'Portfolio Visitor'}`)}&body=${encodeURIComponent(
+    formData.message 
+      ? `${formData.message}\n\n---\nFrom: ${formData.name || 'Visitor'} (${formData.email || 'No email provided'})`
+      : `Hi Shreeya,\n\nI would love to connect with you regarding opportunities / collaboration.\n\nBest,\n`
+  )}`;
+
   return (
     <section id="contact" style={{ padding: '80px 0', position: 'relative' }}>
+      {/* Hidden iframe target for silent, CORS-free FormSubmit processing */}
+      <iframe 
+        name="formsubmit_frame" 
+        id="formsubmit_frame" 
+        title="FormSubmit Processor" 
+        style={{ display: 'none', width: 0, height: 0, border: 'none' }} 
+      />
+
       <div className="neo-container">
         {/* Editorial Section Header */}
         <div className="swiss-header">
@@ -96,7 +108,7 @@ export const Contact: React.FC = () => {
             <div className="swiss-header-num">
               <span>09 / CONTACT</span>
             </div>
-            <span>MODULE_09 // DISPATCH & INQUIRIES</span>
+            <span>MODULE_09 // DIRECT INQUIRIES & DISPATCH</span>
           </div>
         </div>
 
@@ -109,7 +121,7 @@ export const Contact: React.FC = () => {
           }}
           className="contact-grid"
         >
-          {/* Left Column (5 Cols): Big Typography & Coordinates */}
+          {/* Left Column (5 Cols): Typography & Quick Channels */}
           <div className="contact-col-left" style={{ gridColumn: 'span 5 / span 5' }}>
             <h2 
               style={{
@@ -130,7 +142,7 @@ export const Contact: React.FC = () => {
               Seeking Software Engineering, AI/ML, and Computer Vision opportunities. Open to technical collaborations, internships, and research discussions.
             </p>
 
-            {/* Direct Copy Card */}
+            {/* Direct Copy & Compose Card */}
             <div 
               className="bento-card"
               style={{
@@ -140,22 +152,35 @@ export const Contact: React.FC = () => {
               }}
             >
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: 'var(--text-dim)', display: 'block', marginBottom: '6px' }}>
-                PRIMARY DISPATCH EMAIL
+                PRIMARY DISPATCH INBOX
               </span>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '12px' }}>
                 {PROFILE.email}
               </div>
 
-              <button
-                type="button"
-                onClick={handleCopyEmail}
-                className="swiss-btn"
-                style={{ width: '100%', fontSize: '0.72rem', padding: '8px' }}
-                aria-label="Copy email address to clipboard"
-              >
-                {copied ? <Check size={13} color="var(--accent-green)" /> : <Copy size={13} />}
-                <span>{copied ? 'COPIED TO CLIPBOARD' : 'COPY EMAIL ADDRESS'}</span>
-              </button>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="swiss-btn"
+                  style={{ width: '100%', fontSize: '0.72rem', padding: '8px' }}
+                  aria-label="Copy email address to clipboard"
+                >
+                  {copied ? <Check size={13} color="var(--accent-green)" /> : <Copy size={13} />}
+                  <span>{copied ? 'COPIED TO CLIPBOARD' : 'COPY EMAIL ADDRESS'}</span>
+                </button>
+
+                <a
+                  href={gmailComposeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="swiss-btn swiss-btn-primary"
+                  style={{ width: '100%', fontSize: '0.72rem', padding: '8px', textAlign: 'center', justifyContent: 'center' }}
+                >
+                  <Mail size={13} />
+                  <span>OPEN IN GMAIL WEB ↗</span>
+                </a>
+              </div>
             </div>
 
             {/* Verified Channels */}
@@ -203,9 +228,9 @@ export const Contact: React.FC = () => {
                   TRANSMIT DIRECT INQUIRY
                 </span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <span style={{ width: '6px', height: '6px', backgroundColor: 'var(--accent-green)', borderRadius: '50%' }} />
+                  <span style={{ width: '6px', height: '6px', backgroundColor: 'var(--accent-green)', borderRadius: '50%', boxShadow: '0 0 6px var(--accent-green)' }} />
                   <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: 'var(--accent-green)' }}>
-                    API ONLINE // 256-BIT ENCRYPTION
+                    ROUTED TO: {PROFILE.email}
                   </span>
                 </div>
               </div>
@@ -216,14 +241,14 @@ export const Contact: React.FC = () => {
                   style={{
                     padding: '12px 16px',
                     marginBottom: '20px',
-                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    backgroundColor: 'rgba(239, 68, 68, 0.08)',
                     border: '1px solid #EF4444',
                     borderLeft: '4px solid #EF4444',
+                    fontSize: '0.82rem',
+                    color: '#F87171',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '10px',
-                    fontSize: '0.82rem',
-                    color: '#F87171'
+                    gap: '8px'
                   }}
                 >
                   <AlertCircle size={16} style={{ flexShrink: 0 }} />
@@ -234,35 +259,68 @@ export const Contact: React.FC = () => {
               {submitted ? (
                 <div 
                   style={{ 
-                    padding: '32px 24px', 
+                    padding: '36px 24px', 
                     backgroundColor: 'var(--bg-surface)', 
                     border: 'var(--border-width) solid var(--accent-green)', 
                     textAlign: 'center' 
                   }}
                 >
-                  <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(183, 243, 74, 0.15)', border: '1px solid var(--accent-green)', marginBottom: '16px' }}>
-                    <Check size={20} color="var(--accent-green)" />
+                  <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', borderRadius: '50%', backgroundColor: 'rgba(183, 243, 74, 0.15)', border: '1px solid var(--accent-green)', marginBottom: '16px' }}>
+                    <Check size={24} color="var(--accent-green)" />
                   </div>
-                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px', letterSpacing: '-0.02em' }}>
-                    TRANSMISSION CONFIRMED
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+                    TRANSMISSION DISPATCHED!
                   </div>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '420px', margin: '0 auto 24px' }}>
-                    Message sent successfully. I've received your dispatch and will review and respond promptly.
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '460px', margin: '0 auto 16px' }}>
+                    Your message has been sent directly to <strong style={{ color: 'var(--text-primary)' }}>{PROFILE.email}</strong>. I will review your inquiry and reply to your email address promptly!
                   </p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSubmitted(false);
-                      setErrorMessage(null);
-                    }}
-                    className="swiss-btn swiss-btn-primary"
-                    style={{ fontSize: '0.78rem', padding: '10px 18px' }}
-                  >
-                    SEND ANOTHER MESSAGE
-                  </button>
+
+                  <div style={{ margin: '16px auto', maxWidth: '440px', padding: '10px 14px', background: '#111', border: '1px dashed #333', textAlign: 'left', fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: '#999' }}>
+                    <strong style={{ color: '#FFD83D', display: 'block', marginBottom: '4px' }}>FIRST TIME SETUP NOTE:</strong>
+                    The very first time you test this, FormSubmit sends a one-time activation email to <strong style={{ color: '#FFF' }}>{PROFILE.email}</strong>. Open Gmail and click <em>"Activate Form"</em> to start receiving all future messages instantly!
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '20px', flexWrap: 'wrap' }}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSubmitted(false);
+                        setErrorMessage(null);
+                        setFormData(INITIAL_FORM);
+                      }}
+                      className="swiss-btn swiss-btn-primary"
+                      style={{ fontSize: '0.78rem', padding: '10px 18px' }}
+                    >
+                      SEND ANOTHER MESSAGE
+                    </button>
+
+                    <a
+                      href={gmailComposeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="swiss-btn"
+                      style={{ fontSize: '0.78rem', padding: '10px 18px' }}
+                    >
+                      <Mail size={13} />
+                      <span>OPEN IN GMAIL WEB ↗</span>
+                    </a>
+                  </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+                <form 
+                  action={`https://formsubmit.co/${PROFILE.email}`} 
+                  method="POST" 
+                  target="formsubmit_frame"
+                  onSubmit={handleSubmit}
+                  noValidate 
+                  style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}
+                >
+                  {/* FormSubmit Configuration Fields */}
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_subject" value={`New Portfolio Inquiry from ${formData.name || 'Visitor'}: ${formData.subject || 'Connection Request'}`} />
+                  <input type="hidden" name="_replyto" value={formData.email} />
+
                   {/* Invisible Honeypot field for bot trapping */}
                   <input
                     type="text"
@@ -280,10 +338,11 @@ export const Contact: React.FC = () => {
                       htmlFor="contact-name"
                       style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-dim)', marginBottom: '6px' }}
                     >
-                      FULL NAME *
+                      YOUR FULL NAME *
                     </label>
                     <input
                       id="contact-name"
+                      name="name"
                       type="text"
                       required
                       autoComplete="name"
@@ -301,10 +360,11 @@ export const Contact: React.FC = () => {
                       htmlFor="contact-email"
                       style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-dim)', marginBottom: '6px' }}
                     >
-                      EMAIL ADDRESS *
+                      YOUR EMAIL ADDRESS (FOR REPLIES) *
                     </label>
                     <input
                       id="contact-email"
+                      name="email"
                       type="email"
                       required
                       autoComplete="email"
@@ -322,14 +382,15 @@ export const Contact: React.FC = () => {
                       htmlFor="contact-subject"
                       style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-dim)', marginBottom: '6px' }}
                     >
-                      SUBJECT (OPTIONAL)
+                      SUBJECT / PURPOSE (OPTIONAL)
                     </label>
                     <input
                       id="contact-subject"
+                      name="subject"
                       type="text"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      placeholder="e.g. SDE Internship / AI Engineering Role"
+                      placeholder="e.g. SDE Internship / AI Engineering / Technical Collaboration"
                       className="swiss-input"
                       disabled={isSubmitting}
                       style={{ width: '100%' }}
@@ -341,10 +402,11 @@ export const Contact: React.FC = () => {
                       htmlFor="contact-message"
                       style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-dim)', marginBottom: '6px' }}
                     >
-                      MESSAGE / PROJECT SCOPE *
+                      MESSAGE DETAILS *
                     </label>
                     <textarea
                       id="contact-message"
+                      name="message"
                       rows={5}
                       required
                       value={formData.message}
@@ -356,31 +418,49 @@ export const Contact: React.FC = () => {
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="swiss-btn swiss-btn-primary"
-                    style={{ 
-                      padding: '12px 20px', 
-                      fontSize: '0.85rem', 
-                      width: '100%', 
-                      marginTop: '6px',
-                      opacity: isSubmitting ? 0.7 : 1,
-                      cursor: isSubmitting ? 'not-allowed' : 'pointer'
-                    }}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 size={16} className="animate-spin" style={{ animation: 'spin 1s linear infinite' }} />
-                        <span>TRANSMITTING INQUIRY...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>TRANSMIT DISPATCH</span>
-                        <ArrowRight size={15} />
-                      </>
-                    )}
-                  </button>
+                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '6px' }}>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="swiss-btn swiss-btn-primary"
+                      style={{ 
+                        flex: '1 1 200px',
+                        padding: '12px 20px', 
+                        fontSize: '0.85rem', 
+                        opacity: isSubmitting ? 0.7 : 1,
+                        cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                        justifyContent: 'center'
+                      }}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 size={16} className="animate-spin" style={{ animation: 'spin 1s linear infinite' }} />
+                          <span>TRANSMITTING DIRECT TO EMAIL...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send size={15} />
+                          <span>TRANSMIT DISPATCH TO EMAIL</span>
+                        </>
+                      )}
+                    </button>
+
+                    <a
+                      href={gmailComposeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="swiss-btn"
+                      style={{ 
+                        padding: '12px 16px', 
+                        fontSize: '0.85rem',
+                        justifyContent: 'center'
+                      }}
+                      title="Direct compose in Gmail Web"
+                    >
+                      <Mail size={15} />
+                      <span>OPEN IN GMAIL WEB</span>
+                    </a>
+                  </div>
                 </form>
               )}
             </div>

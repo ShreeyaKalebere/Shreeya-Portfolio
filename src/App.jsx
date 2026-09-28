@@ -16,6 +16,7 @@ import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import RecruiterDashboard from './components/Recruiter/RecruiterDashboard';
 import CustomCursor from './components/CustomCursor';
+import SpotlightTracker from './components/SpotlightTracker';
 
 export default function App() {
   // Theme state: Dark mode is the primary default visual experience (#0A0A0A)
@@ -132,6 +133,9 @@ export default function App() {
     <div className="app-shell" style={{ minHeight: '100vh', backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
       {/* Precision Reticle Cursor (Desktop Only) */}
       <CustomCursor />
+
+      {/* Dynamic Ambient Cursor Spotlight on Bento Cards */}
+      <SpotlightTracker />
 
       {/* Recruiter View Mode */}
       {isRecruiterView ? (

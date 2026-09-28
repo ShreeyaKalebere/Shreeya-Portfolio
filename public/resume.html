@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Shreeya Kalebere - Resume</title>
+<style>
+  @page {
+    size: letter portrait;
+    margin: 12mm 14mm 12mm 14mm;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    font-size: 9.6pt;
+    line-height: 1.34;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .no-print {
+    margin-bottom: 15px;
+    text-align: right;
+  }
+  .btn {
+    background: #2563eb;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: none;
+  }
+  @media print {
+    .no-print { display: none !important; }
+    body { padding: 0; }
+  }
+  header {
+    text-align: center;
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 6px;
+    margin-bottom: 9px;
+  }
+  h1 {
+    font-size: 19pt;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .role {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #2563eb;
+    margin-top: 2px;
+    letter-spacing: 0.4px;
+  }
+  .contact-info {
+    margin-top: 4px;
+    font-size: 8.5pt;
+    color: #475569;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .contact-info a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  section {
+    margin-bottom: 9px;
+  }
+  h2 {
+    font-size: 9.5pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #0f172a;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 2px;
+    margin-bottom: 6px;
+  }
+  .summary-text {
+    font-size: 8.8pt;
+    color: #334155;
+    line-height: 1.36;
+    text-align: justify;
+  }
+  .item {
+    margin-bottom: 6px;
+    page-break-inside: avoid;
+  }
+  .item-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 9.2pt;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .item-sub-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 8.5pt;
+    color: #475569;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .tech-line {
+    font-size: 8.2pt;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 2px;
+  }
+  ul {
+    list-style-type: square;
+    padding-left: 15px;
+    margin-top: 1px;
+  }
+  li {
+    font-size: 8.7pt;
+    color: #334155;
+    margin-bottom: 2px;
+    line-height: 1.32;
+  }
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.8pt;
+  }
+  .skills-table td {
+    padding: 1.5px 0;
+    vertical-align: top;
+  }
+  .skills-table td.cat {
+    font-weight: 700;
+    color: #0f172a;
+    width: 140px;
+  }
+  .skills-table td.vals {
+    color: #334155;
+  }
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <button class="btn" onclick="window.print()">🖨️ Print to PDF / Save Resume</button>
+</div>
+
+<header>
+  <h1>Shreeya Kalebere</h1>
+  <div class="role">SOFTWARE ENGINEER &bull; AI/ML ENGINEER &bull; FULL-STACK SYSTEMS</div>
+  <div class="contact-info">
+    <span>Maharashtra, India</span>
+    <span>&bull;</span>
+    <span>shreeyakalebere11@gmail.com</span>
+    <span>&bull;</span>
+    <span>Portfolio: shreeyakalebere.vercel.app</span>
+    <span>&bull;</span>
+    <span>github.com/ShreeyaKalebere</span>
+    <span>&bull;</span>
+    <span>linkedin.com/in/shreeya-kalebere</span>
+  </div>
+</header>
+
+<section>
+  <h2>Professional Summary</h2>
+  <p class="summary-text">
+    High-achieving Computer Science & Engineering undergraduate (<strong>Department Rank 2 / 287</strong>, <strong>CGPA 9.6 / 10.0</strong>) with practical expertise engineering production-grade full-stack platforms, computer vision pipelines, and intelligent signal/ML systems. Experienced across core computer science foundations (DSA, OOP, OS, DBMS) and modern production technologies (React, Node.js/Express, Python, PyTorch, YOLO, MongoDB, SciPy). Proven track record in national hackathons and academic leadership with a commitment to clean code, data privacy, and robust software architecture.
+  </p>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <div class="item">
+    <div class="item-title-row">
+      <span>D.Y. Patil College of Engineering and Technology</span>
+      <span>2023 &ndash; 2027 (Expected)</span>
+    </div>
+    <div class="item-sub-row">
+      <span>Bachelor of Technology (B.Tech) in Computer Science & Engineering</span>
+      <span>Maharashtra, India</span>
+    </div>
+    <ul>
+      <li><strong>Academic Standing:</strong> <strong>CGPA 9.6 / 10.0</strong> &bull; <strong>Department Rank 2nd among 287 students (Top 0.7%)</strong>.</li>
+      <li><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Operating Systems, Database Management Systems (DBMS), Object-Oriented Programming (Java/C++), Computer Networks & Security, Machine Learning & AI, Computer Vision, Full-Stack Web Development.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Technical Skills</h2>
+  <table class="skills-table">
+    <tr>
+      <td class="cat">&bull; Languages:</td>
+      <td class="vals">Python, Java, C++, JavaScript (ES6+), TypeScript, SQL</td>
+    </tr>
+    <tr>
+      <td class="cat">&bull; Full-Stack & Web:</td>
+      <td class="vals">React, Node.js, Express.js, MERN Stack, RESTful APIs, Tailwind CSS, HTML5, CSS3, Socket.io, Three.js</td>
+    </tr>
+    <tr>
+      <td class="cat">&bull; AI / ML, Vision & Signals:</td>
+      <td class="vals">PyTorch, YOLO, OpenCV, Signal Processing (SciPy/NumPy, FFT Spectrograms, MFCCs), Scikit-Learn, Spatial Filtering, CLAHE, NLP / Token Parsers</td>
+    </tr>
+    <tr>
+      <td class="cat">&bull; Databases & Storage:</td>
+      <td class="vals">MongoDB (Aggregation Pipelines, BSON), PostgreSQL, SQLite, Document Stores, ACID Transactions</td>
+    </tr>
+    <tr>
+      <td class="cat">&bull; Tools & DevOps:</td>
+      <td class="vals">FastAPI, Docker, Git, GitHub, Linux/CLI, Vite, Postman, Vercel Serverless Functions</td>
+    </tr>
+  </table>
+</section>
+
+<section>
+  <h2>Key Engineering & Research Projects</h2>
+
+  <!-- Project 1: Silent Alarm -->
+  <div class="item">
+    <div class="item-title-row">
+      <span>Silent Alarm &mdash; Discreet Mental Health Wellness &amp; Silent Alert Platform</span>
+      <span>Full-Stack / Mental Health &amp; Discreet Assistance</span>
+    </div>
+    <div class="tech-line">React &bull; Node.js &bull; Express.js &bull; MongoDB &bull; Conversational NLP &bull; State Management &bull; REST APIs &bull; Modern Web UI</div>
+    <ul>
+      <li>Architected a discreet, browser-based psychological wellness platform providing contextual conversational assistance, non-intrusive wellness nudges, and secure consent-driven data boundaries for users in sensitive environments.</li>
+      <li>Decoupled client interaction layers into modular components (WellnessChatbot, WellnessNudgeToast, WellnessGlossaryModal) with ephemeral session persistence and keystroke cadence/dwell time telemetry.</li>
+      <li>Constructed an ephemeral session state engine with gentle toast dispatchers, zero non-essential persistent tracking without user consent, and resilient client-side fallback dialogues delivering sub-second response times.</li>
+    </ul>
+  </div>
+
+  <!-- Project 2: Road Damage & Pothole Detection -->
+  <div class="item">
+    <div class="item-title-row">
+      <span>Road Damage &amp; Pothole Distress Detection</span>
+      <span>Computer Vision / Deep Learning Research</span>
+    </div>
+    <div class="tech-line">Python &bull; YOLO &bull; OpenCV &bull; Pothole-600 Dataset &bull; PyTorch &bull; Spatial Filters &bull; CLAHE</div>
+    <ul>
+      <li>Investigated real-time single-stage object detection architectures (YOLO) paired with OpenCV image enhancement on the Pothole-600 dataset to classify asphalt cavities and alligator cracking with 3-tier distress severity mapping.</li>
+      <li>Evaluated Adaptive Histogram Equalization (CLAHE) and edge contour thresholding in OpenCV to eliminate false positive cavity detections caused by severe sunlight variance, wet road reflections, and tree shadow occlusions.</li>
+      <li>Integrated GPS coordinate and timestamp logging schemas for municipal maintenance routing; associated technical research paper in progress.</li>
+    </ul>
+  </div>
+
+  <!-- Project 3: Resume Maker & Enhancer -->
+  <div class="item">
+    <div class="item-title-row">
+      <span>Resume Maker &amp; Enhancer &mdash; Intelligent ATS Document Optimization Engine</span>
+      <span>Full-Stack / Document Engine / ATS NLP</span>
+    </div>
+    <div class="tech-line">React &bull; Node.js &bull; TypeScript &bull; NLP &bull; Regex Parsers &bull; PDF Generation &bull; ATS Scoring Algorithms &bull; REST APIs</div>
+    <ul>
+      <li>Engineered a real-time reactive resume builder and enhancer that scores ATS compliance, suggests quantitative impact phrasing, and renders standardized vector PDFs.</li>
+      <li>Combined a live dual-pane React editor with server-side document normalization, implementing token parsers that cross-reference industry job descriptions against resume sections to evaluate keyword density.</li>
+      <li>Created a unified JSON schema for resume Abstract Syntax Trees (AST) to cleanly separate styling themes from raw career data, ensuring pixel-perfect preview-to-PDF rendering parity across multi-column layouts.</li>
+    </ul>
+  </div>
+
+  <!-- Project 4: Sonar Fingerprint -->
+  <div class="item">
+    <div class="item-title-row">
+      <span>Sonar Fingerprint &mdash; Acoustic Signature Classification System</span>
+      <span>Signal Processing / Machine Learning / Acoustic Classification</span>
+    </div>
+    <div class="tech-line">Python &bull; Signal Processing &bull; NumPy &bull; SciPy &bull; PyTorch &bull; FFT Spectrograms &bull; Scikit-Learn</div>
+    <ul>
+      <li>Developed a signal processing and machine learning pipeline that applies Fast Fourier Transforms (FFT) and Mel-frequency cepstral coefficients (MFCC) to isolate acoustic echo fingerprints from underwater sonar data.</li>
+      <li>Transformed raw time-domain sonar waveforms into 2D time-frequency spectrogram matrices, feeding spectral feature tensors into dense PyTorch neural classifiers.</li>
+      <li>Implemented spectral subtraction and bandpass Butterworth filtering in SciPy prior to extracting frequency centroid and energy distribution vectors to eliminate ambient noise and thermal gradient distortions.</li>
+    </ul>
+  </div>
+
+  <!-- Project 5: Food Safe -->
+  <div class="item">
+    <div class="item-title-row">
+      <span>Food Safe &mdash; Full-Stack Food Safety &amp; Quality Platform</span>
+      <span>Full-Stack / MERN / Food Safety</span>
+    </div>
+    <div class="tech-line">React &bull; Node.js &bull; Express.js &bull; MongoDB &bull; MERN Stack &bull; OCR Concepts &bull; REST APIs</div>
+    <ul>
+      <li>Engineered a centralized MERN web application integrating optical character recognition (OCR) and text parsing concepts to catalog food records, parse ingredient text, and flag potential safety hazards.</li>
+      <li>Constructed regex normalizers and token pipelines to sanitize raw OCR text before matching against food additive databases, decoding complex E-numbers.</li>
+      <li>Decoupled frontend component state from backend parsing microservices, delivering sub-second response times using optimized MongoDB query indexing.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Honors, Awards & Leadership</h2>
+  <ul>
+    <li><strong>Department Academic Rank 2 / 287 (Top 0.7%):</strong> Awarded for continuous academic distinction across CSE curricula (<strong>CGPA 9.6 / 10.0</strong>).</li>
+    <li><strong>Eureka Hackathon &mdash; 3rd Prize Winner:</strong> Ideated, designed, and defended a functional software prototype under competitive time constraints.</li>
+    <li><strong>National Talent Search Examination (NTSE):</strong> Qualified <strong>Stage 1 & Stage 2</strong> of India’s premier national merit scholarship.</li>
+    <li><strong>Smart India Hackathon (SIH) Competitor:</strong> Selected competitor engineering prototypes solving government ministry problem statements.</li>
+    <li><strong>SOF International Mathematics Olympiad (IMO):</strong> Awarded Merit Distinction for quantitative reasoning and analytical problem solving.</li>
+    <li><strong>ISRO Certification:</strong> Completed satellite remote sensing program on <em>Climate Change and Aerosol Management</em> with ISRO.</li>
+    <li><strong>Elected Class Representative:</strong> Primary academic liaison for a cohort of 60+ Computer Science undergraduates.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Technical Immersions & Field Expeditions</h2>
+  <ul>
+    <li><strong>IIT Bombay Techfest (2024):</strong> Participated in robotics exhibits, autonomous drone telemetry, and real-time edge AI demonstrations.</li>
+    <li><strong>Dassault Syst&egrave;mes Women's Fest (2024):</strong> Selected participant engaging with engineering leads on 3D digital twins and PLM software.</li>
+    <li><strong>Baramati Industrial & Agri-Tech Immersion (2024):</strong> Field study of automated manufacturing plants, sensor networks, and PLC telemetry.</li>
+  </ul>
+</section>
+
+</body>
+</html>

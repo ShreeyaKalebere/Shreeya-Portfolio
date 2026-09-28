@@ -33,19 +33,111 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    id: "roadcare-ai",
+    title: "RoadCare AI",
+    category: "COMPUTER VISION & DEEP LEARNING / EDGE SYSTEMS",
+    status: "built",
+    description: "End-to-end automated road distress capture and triage system utilizing Ultralytics YOLO11 trained on the RoadDamage20K dataset for real-time cavity and fracture detection.",
+    accent: "#FFD83D", // Amber Gold accent
+    technologies: ["Python", "Ultralytics YOLO11", "ByteTrack", "OpenCV", "PyTorch", "FastAPI", "Leaflet.js", "GeoJSON", "SQLite / MongoDB Atlas"],
+    problem: "Municipal road surface monitoring is slow, hazardous, and reactive, leading to delayed repairs for asphalt cavities (potholes) and fatigue alligator cracking that trigger vehicular accidents.",
+    built: "Engineered an edge vision triage platform combining Ultralytics YOLO11 with ByteTrack multi-object tracking to assign persistent defect IDs across camera frames, preventing duplicate logging in municipal databases.",
+    approach: "Designed area-based severity categorization heuristics (Low / Medium / High priority) coupled with GPS coordinate telemetry, feeding an interactive dark-mode Leaflet triage dashboard for contractor dispatch.",
+    challenge: "Suppression of false positive detections caused by wet asphalt reflections, overhead tree shadows, and non-distress surface variations across dynamic daytime lighting.",
+    engineering: "Constructed OpenCV preprocessing pipelines (adaptive CLAHE and spatial contour filters) before feeding frames to the neural backbone, ensuring reliable confidence thresholding.",
+    outcome: "Real-time edge detection achieving sub-30ms inference latency with persistent defect tracking and automated geospatial municipal dispatch logging.",
+    github: "https://github.com/ShreeyaKalebere",
+    cover: "/images/projects/roadcare-ai.png",
+    voxelVisual: {
+      type: "vision-matrix",
+      primaryBlock: "EDGE CAMERA TELEMETRY",
+      accentBlock: "YOLO11 DETECTOR",
+      subtext: "YOLO11 × ByteTrack × Leaflet Triage Dashboard"
+    }
+  },
+  {
+    id: "silent-alarm",
+    title: "Silent Alarm",
+    category: "MENTAL HEALTH AI & FULL-STACK PLATFORM",
+    status: "built",
+    description: "Full-stack mental health wellness chat platform that analyzes subtle micro-shifts in student typing cadence (dwell time, flight time, pauses, backspaces) during live chat to identify sustained distress.",
+    accent: "#38BDF8", // Cyan / sky blue accent
+    technologies: ["React 19", "Tailwind CSS", "Node.js", "Express.js", "Socket.io", "MongoDB", "Python FastAPI", "PyTorch (LSTM Autoencoder)", "Scikit-Learn (Isolation Forest)"],
+    problem: "Students experiencing acute emotional distress or anxiety often mask their feelings in explicit text or cannot articulate their state directly, delaying critical supportive intervention.",
+    built: "Architected a full-stack wellness chat platform that captures non-verbal typing kinematics without logging keystroke characters, detecting divergence from personalized typing baselines.",
+    approach: "Engineered an ensemble Python ML microservice combining per-user Isolation Forest anomaly detection with a PyTorch LSTM sequence autoencoder to identify behavioral distress shifts in real time.",
+    challenge: "Guaranteeing absolute zero-knowledge privacy while processing millisecond-level timing telemetry in real-time without introducing chat UI latency.",
+    engineering: "Enforced strict zero-knowledge architecture with zero message text capture, 30-day TTL telemetry auto-expiry, automated private wellness nudges, and dual-threshold counselor escalation.",
+    outcome: "Privacy-preserving wellness system delivering real-time unobtrusive support nudges with zero keystroke identity capture.",
+    github: "https://github.com/ShreeyaKalebere",
+    cover: "/images/projects/silent-alarm.png",
+    voxelVisual: {
+      type: "voxel-grid",
+      primaryBlock: "KEYSTROKE KINEMATICS",
+      accentBlock: "LSTM AUTOENCODER",
+      subtext: "React 19 × PyTorch LSTM × Zero-Knowledge Privacy"
+    }
+  },
+  {
+    id: "sonic-fingerprints",
+    title: "Sonic Fingerprints & Solar System Acoustic Explorer",
+    category: "DUAL-MODE ACOUSTIC AI & VECTOR RETRIEVAL",
+    status: "built",
+    description: "Dual-mode acoustic intelligence platform combining physical room fingerprinting via ambient impulse responses with real-time vector retrieval across NASA planetary radio frequency sonifications.",
+    accent: "#818CF8", // Acoustic violet / indigo accent
+    technologies: ["React", "Node.js", "Express.js", "Python FastAPI", "ChromaDB", "Librosa", "Web Audio API", "PyTorch", "Docker"],
+    problem: "Acoustic audio contains rich spatial and astronomical information that is difficult to catalog, compare, and query in real-time using conventional time-domain processing.",
+    built: "Designed a dual-mode acoustic intelligence platform powered by an Express API gateway and a shared Python FastAPI signal-processing microservice backed by ChromaDB vector embeddings.",
+    approach: "Mode 1 extracts acoustic features (MFCCs, spectral centroid, zero-crossing rate, impulse responses) to classify physical rooms via cosine similarity. Mode 2 indexes NASA planetary radio emissions for real-time acoustic pattern matching.",
+    challenge: "Normalizing dynamic microphone hardware sensitivities across devices and indexing variable-length planetary wave recordings into fixed-dimension vector spaces.",
+    engineering: "Built Librosa feature extraction pipelines generating normalized 2D Mel-spectrogram tensors and ChromaDB vector embeddings with interactive Web Audio API spectrogram visualizers.",
+    outcome: "Dual-mode platform achieving reliable physical acoustic room matching and sub-second NASA celestial sonification pattern search.",
+    github: "https://github.com/ShreeyaKalebere",
+    cover: "/images/projects/sonic-fingerprints.png",
+    voxelVisual: {
+      type: "space-orbit",
+      primaryBlock: "AUDIO SPECTROGRAM",
+      accentBlock: "CHROMADB EMBEDDING",
+      subtext: "Librosa × ChromaDB × NASA Planetary Sonifications"
+    }
+  },
+  {
+    id: "resumepilot-ai",
+    title: "ResumePilot AI",
+    category: "AGENTIC AI SAAS & DOCUMENT PROCESSING",
+    status: "built",
+    description: "Production-grade full-stack AI SaaS platform that automatically parses master resumes (PDF/DOCX) and tailors them to target job descriptions while strictly preserving visual formatting.",
+    accent: "#4ADE80", // Emerald green accent
+    technologies: ["React 18", "TypeScript", "Tailwind CSS", "Node.js", "Express.js", "Python FastAPI", "ChromaDB / TF-IDF", "Gemini / OpenAI APIs", "python-docx"],
+    problem: "Automated Applicant Tracking Systems (ATS) reject high-qualified candidates due to mismatched terminology, while generic LLMs hallucinate false qualifications when tailoring resumes.",
+    built: "Constructed an agentic matching pipeline evaluating skill overlap, bullet-point rewriting with strong action verbs, and an automated Truth Validator that cross-checks claims against source evidence.",
+    approach: "Integrated a weighted ATS-scoring engine (Skill Coverage, Keyword Density, Experience Relevance) with dual-stream exports to verified Microsoft Word (.docx) and standardized PDF documents.",
+    challenge: "Eliminating generative AI hallucinations during resume bullet-point enhancement and preventing layout degradation across complex typography.",
+    engineering: "Implemented deterministic source-sentence grounding checks returning confidence penalties whenever generated phrasing deviates from verified user experience.",
+    outcome: "Production AI platform delivering quantifiable ATS score metrics, zero-hallucination bullet point optimization, and instant DOCX/PDF export.",
+    github: "https://github.com/ShreeyaKalebere",
+    cover: "/images/projects/resumepilot-ai.png",
+    voxelVisual: {
+      type: "agent-flow",
+      primaryBlock: "MASTER RESUME AST",
+      accentBlock: "TRUTH VALIDATOR",
+      subtext: "Agentic AI × ATS Scoring Engine × DOCX/PDF Export"
+    }
+  },
+  {
     id: "food-safe",
     title: "Food Safe",
-    category: "FULL STACK / MERN / FOOD SAFETY",
+    category: "FULL-STACK MERN & OCR SYSTEM",
     status: "built",
-    description: "Food safety and quality monitoring platform focused on analyzing food records, label transparency, and ingredient health indicators.",
-    accent: "#B7F34A", // Green accent
-    technologies: ["React", "Node.js", "Express.js", "MongoDB", "MERN Stack", "OCR Concepts", "REST APIs"],
-    problem: "Consumers routinely struggle with chemical nomenclature, confusing additive codes, and hidden allergens on packaged food labels, making dietary safety assessment cumbersome.",
-    built: "Engineered a centralized MERN web application integrating optical character recognition (OCR) and text parsing concepts to catalog food records, parse ingredient text, and flag potential safety hazards.",
-    approach: "Decoupled frontend component state from backend parsing microservices, utilizing MongoDB for dynamic product schemas and Express REST endpoints for fast response delivery.",
+    description: "Centralized web platform enabling consumers to catalog food packaging, decode complex additive E-numbers, and highlight potential allergen hazards.",
+    accent: "#B7F34A", // Lime green accent
+    technologies: ["React", "Node.js", "Express.js", "MongoDB", "MERN Stack", "RESTful APIs", "OCR Text Normalization"],
+    problem: "Consumers routinely struggle with ambiguous chemical nomenclature, confusing additive codes, and hidden allergens on packaged food labels, making dietary safety assessment cumbersome.",
+    built: "Engineered a centralized web application enabling consumers to catalog food packaging, decode complex additive E-numbers, and highlight potential allergen hazards.",
+    approach: "Built regex normalizers and token pipelines to sanitize raw optical character recognition (OCR) text before cross-referencing additive toxicity databases.",
     challenge: "Parsing varied packaging fonts, poor contrast angles, and irregular line breaks into standardized relational ingredient schemas.",
-    engineering: "Constructed regex normalizers and token pipelines to sanitize raw OCR text before matching against food additive databases.",
-    outcome: "Functional full-stack platform providing transparent food information records with instant hazard concept alerts.",
+    engineering: "Decoupled frontend component state from backend parsing microservices, delivering sub-second response times using optimized MongoDB query indexing.",
+    outcome: "Functional full-stack platform providing transparent food safety information with instant additive hazard alerts.",
     github: "https://github.com/ShreeyaKalebere",
     cover: "/images/projects/food-safe.png",
     voxelVisual: {
@@ -53,121 +145,6 @@ export const PROJECTS: Project[] = [
       primaryBlock: "VOXEL FOOD PACKAGE",
       accentBlock: "SAFETY DATA BLOCKS",
       subtext: "MERN Stack × Food Transparency Pipeline"
-    }
-  },
-  {
-    id: "orchestrix",
-    title: "Orchestrix",
-    category: "AI AGENTS / SOFTWARE ENGINEERING",
-    status: "prototype",
-    description: "Autonomous AI agent system modeling multi-stage reasoning loops, automated workflow decomposition, and dynamic tool execution.",
-    accent: "#A855F7", // Purple accent
-    technologies: ["Python", "FastAPI", "AI Agents", "Reasoning Loops", "Workflow Orchestration", "AsyncIO"],
-    problem: "Monolithic AI setups struggle with complex multi-stage tasks requiring structured decomposition, adaptive replanning, and verified tool executions.",
-    built: "Designed a modular cognitive agent controller that breaks user tasks into step-by-step action graphs with structured tool-calling boundaries.",
-    approach: "Structured explicit cognitive state machines: INPUT → AGENT → REASONING / WORKFLOW → ACTION → OUTPUT, ensuring deterministic tool execution and state preservation.",
-    challenge: "Handling infinite recursive deliberation loops and ensuring reliable session state recovery across multi-turn workflows.",
-    engineering: "Implemented strict timeout checkpoints and fallback handlers for external API action dispatches.",
-    outcome: "Functional architecture prototype demonstrating autonomous reasoning and tool execution without hallucinated side-effects.",
-    github: "https://github.com/ShreeyaKalebere",
-    cover: "/images/projects/orchestrix.png",
-    voxelVisual: {
-      type: "agent-flow",
-      primaryBlock: "AGENT NODES",
-      accentBlock: "ORCHESTRATION CORE",
-      subtext: "Input → Agent → Tool → Output"
-    }
-  },
-  {
-    id: "road-damage",
-    title: "Road Damage & Pothole Detection",
-    category: "COMPUTER VISION / DEEP LEARNING",
-    status: "research",
-    description: "Applied computer vision research leveraging YOLO and OpenCV on the Pothole-600 dataset to detect asphalt cavities and alligator cracking with distress severity mapping.",
-    accent: "#FFD83D", // Yellow accent
-    technologies: ["Python", "YOLO", "OpenCV", "Pothole-600 Dataset", "PyTorch", "Spatial Filters"],
-    problem: "Manual road surface inspection is hazardous, slow, and expensive, leading to delayed repairs for potholes and structural alligator cracks that cause vehicular accidents.",
-    built: "Investigating real-time single-stage object detection architectures paired with OpenCV image enhancement to classify road anomalies and estimate structural distress severity.",
-    approach: "Trained on Pothole-600 dataset, pairing bounding box regression with spatial contour filters to differentiate genuine potholes from surface water and shadows. Associated research paper currently in progress.",
-    challenge: "Handling high variance in natural sunlight, wet road reflections, and tree shadow occlusions without generating false positive cavity detections.",
-    engineering: "Evaluated adaptive histogram equalization (CLAHE) and edge thresholding in OpenCV prior to passing frames to the neural backbone.",
-    outcome: "Active research prototypes achieving multi-class distress tagging (Low / Medium / High severity) with GPS/timestamp schema logging.",
-    github: "https://github.com/ShreeyaKalebere",
-    cover: "/images/projects/road-damage.png",
-    voxelVisual: {
-      type: "vision-matrix",
-      primaryBlock: "VOXEL ROAD GRID",
-      accentBlock: "SEVERITY BLOCKS",
-      subtext: "YOLO + OpenCV • Pothole-600 Dataset"
-    }
-  },
-  {
-    id: "space-chatbot",
-    title: "AI Space Information Chatbot",
-    category: "AI / INFORMATION SYSTEM",
-    status: "built",
-    description: "Interactive space exploration terminal delivering celestial telemetry, planetary metrics, and orbital mission intelligence.",
-    accent: "#4D9DE0", // Blue accent
-    technologies: ["Python", "FastAPI", "NLP", "Astronomy Telemetry", "Modern Web UI"],
-    problem: "Public access to astronomical missions and orbital mechanics is fragmented across disparate, dense academic repositories and legacy databases.",
-    built: "Built an interactive mission-control terminal powered by an intelligent querying engine that delivers planetary parameters, mission data, and satellite orbits.",
-    approach: "Created asynchronous FastAPI endpoints connected to curated celestial catalogs with an intuitive terminal HUD interface.",
-    challenge: "Optimizing query resolution speeds while ensuring strict scientific parameter accuracy.",
-    engineering: "Utilized client-side caching and intent parsing algorithms to deliver sub-second responses for planetary telemetry requests.",
-    outcome: "Deployed terminal application delivering accurate astronomical data in an engaging mission-control interface.",
-    github: "https://github.com/ShreeyaKalebere",
-    cover: "/images/projects/space-chatbot.png",
-    voxelVisual: {
-      type: "space-orbit",
-      primaryBlock: "COSMIC TELEMETRY",
-      accentBlock: "ORBITAL RUNES",
-      subtext: "Planetary Telemetry & Mission Intelligence"
-    }
-  },
-  {
-    id: "ai-clone",
-    title: "AI Clone",
-    category: "AI / APPLICATION DEVELOPMENT",
-    status: "prototype",
-    description: "Experimental conversational digital twin modeling technical expertise retrieval, domain-specific query parsing, and adaptive persona responses.",
-    accent: "#FF6B9D", // Pink accent
-    technologies: ["Python", "NLP", "Vector Embeddings", "FastAPI", "Prompt Architecture"],
-    problem: "Standard generic conversational models lack personalized context regarding individual engineering portfolios, specific codebase architectures, and academic backgrounds.",
-    built: "Engineered an experimental conversational retrieval pipeline grounded strictly in verified personal projects, coursework, and technical skills.",
-    approach: "Indexed structured JSON documents into a contextual prompt pipeline to prevent hallucinated qualifications and maintain truthful responses.",
-    challenge: "Preventing semantic drift and hallucinations during out-of-domain conversational queries.",
-    engineering: "Implemented strict boundary checks returning graceful fallback messages whenever inquiries exceed verified portfolio records.",
-    outcome: "Functional persona prototype delivering accurate project walkthroughs and technical background context.",
-    github: "https://github.com/ShreeyaKalebere",
-    cover: "/images/projects/ai-clone.png",
-    voxelVisual: {
-      type: "voxel-grid",
-      primaryBlock: "NEURAL TWIN",
-      accentBlock: "GROUNDED MEMORY",
-      subtext: "Verified Portfolio Knowledge Base"
-    }
-  },
-  {
-    id: "3d-printing-startup",
-    title: "Affordable 3D Models (Startup Idea)",
-    category: "ENTREPRENEURSHIP / PRODUCT BUILDING",
-    status: "concept",
-    description: "Startup venture concept focused on making customized, high-precision 3D printed educational and engineering models accessible and affordable in India.",
-    accent: "#FF6B9D",
-    technologies: ["3D Printing Concept", "CAD / STL Pipelines", "Additive Manufacturing", "Product Strategy"],
-    problem: "High equipment costs, imported filaments, and lack of localized rapid prototyping services create severe barriers for Indian students and hardware startups.",
-    built: "Conceptualized a distributed micro-fab service model linking localized 3D printing hubs with automated online mesh validation and instant pricing.",
-    approach: "Evaluated additive manufacturing cost models, FDM filament sourcing, and automated cloud slicing for student-friendly pricing. Clearly marked as an entrepreneurship startup idea.",
-    challenge: "Optimizing print batch scheduling and material utilization to achieve low unit costs for small custom batches.",
-    engineering: "Modeled cloud-based STL topology verification to detect manifold errors before routing print jobs.",
-    outcome: "Structured entrepreneurship product roadmap and unit economics framework for affordable decentralized 3D manufacturing in India.",
-    github: "https://github.com/ShreeyaKalebere",
-    cover: "/images/projects/3d-printing.png",
-    voxelVisual: {
-      type: "voxel-grid",
-      primaryBlock: "CAD TOPOLOGY",
-      accentBlock: "ADDITIVE FABRICATION",
-      subtext: "Entrepreneurship & Manufacturing Concept"
     }
   }
 ];

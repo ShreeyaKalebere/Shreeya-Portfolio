@@ -1,0 +1,385 @@
+/* =========================================================================
+   DYNAMIC AMBIENT GLOW, CURSOR SPOTLIGHT & ANIMATED DATAFLOW PIPELINES
+   ========================================================================= */
+
+/* --- 1. Bento Card Cursor Spotlight & Border Glow --- */
+.bento-card {
+  position: relative;
+  overflow: hidden;
+  --mouse-x: -9999px;
+  --mouse-y: -9999px;
+  --card-spotlight: rgba(77, 157, 224, 0.14);
+  --card-border-glow: rgba(77, 157, 224, 0.55);
+}
+
+/* Ambient luminous spotlight overlay */
+.bento-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    480px circle at var(--mouse-x) var(--mouse-y),
+    var(--card-spotlight),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+/* 1px dynamic border glow trail */
+.bento-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: radial-gradient(
+    280px circle at var(--mouse-x) var(--mouse-y),
+    var(--card-border-glow),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  padding: 1px;
+}
+
+.bento-card:hover::after {
+  opacity: 1;
+}
+
+/* Ensure card children stay above the ambient spotlight layer */
+.bento-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Light Mode Overrides for Ambient Glow */
+html.light .bento-card::before,
+html:not(.dark) .bento-card::before {
+  background: radial-gradient(
+    480px circle at var(--mouse-x) var(--mouse-y),
+    rgba(37, 99, 235, 0.08),
+    transparent 65%
+  );
+}
+
+html.light .bento-card::after,
+html:not(.dark) .bento-card::after {
+  background: radial-gradient(
+    280px circle at var(--mouse-x) var(--mouse-y),
+    rgba(37, 99, 235, 0.35),
+    transparent 65%
+  );
+}
+
+/* --- 2. Animated Dataflow Pipeline with Live Signal Packets --- */
+
+.interactive-pipeline {
+  margin: 16px 0;
+  background: var(--bg-surface);
+  border: var(--border-width) solid var(--border-color);
+  padding: 14px 16px;
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.interactive-pipeline:hover {
+  border-color: var(--border-color-hover);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Pipeline Status Header */
+.pipeline-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pipeline-telemetry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-dim);
+}
+
+.pipeline-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--pipeline-accent, var(--accent-blue));
+  box-shadow: 0 0 8px var(--pipeline-accent, var(--accent-blue));
+  animation: pulseBeacon 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+    box-shadow: 0 0 12px var(--pipeline-accent, var(--accent-blue));
+  }
+}
+
+.pipeline-hint {
+  color: var(--text-dim);
+  font-size: 0.65rem;
+}
+
+/* Horizontal Pipeline Track */
+.pipeline-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  overflow-x: auto;
+  padding: 8px 0;
+  scrollbar-width: none;
+}
+.pipeline-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual Stage Node */
+.pipeline-node {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.pipeline-node:hover,
+.pipeline-node.active {
+  border-color: var(--pipeline-accent, var(--accent-blue));
+  background: var(--bg-elevated);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.pipeline-node.active {
+  box-shadow: 0 0 12px rgba(77, 157, 224, 0.25);
+}
+
+.pipeline-node-num {
+  font-size: 0.62rem;
+  color: var(--pipeline-accent, var(--accent-blue));
+}
+
+/* Connecting Bus Wire Between Nodes */
+.pipeline-wire {
+  position: relative;
+  flex-grow: 1;
+  min-width: 32px;
+  height: 2px;
+  background: var(--border-color);
+  margin: 0 6px;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+/* Animated Flowing Signal Packets */
+.pipeline-packet {
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pipeline-accent, var(--accent-blue));
+  box-shadow: 0 0 8px var(--pipeline-accent, var(--accent-blue)), 
+              0 0 16px var(--pipeline-accent, var(--accent-blue));
+  transform: translateY(-50%);
+  animation: packetFlow 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.pipeline-packet:nth-child(2) {
+  animation-delay: 1.2s;
+  width: 5px;
+  height: 5px;
+  opacity: 0.8;
+}
+
+@keyframes packetFlow {
+  0% {
+    left: 0%;
+    opacity: 0;
+    transform: translateY(-50%) scale(0.5);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+  }
+  85% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+    transform: translateY(-50%) scale(0.6);
+  }
+}
+
+/* End Terminal Arrow Indicator */
+.pipeline-arrow {
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-left: 5px solid var(--border-color-hover);
+}
+
+/* Active Stage Detail Readout Banner */
+.pipeline-detail-banner {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--bg-card);
+  border-left: 3px solid var(--pipeline-accent, var(--accent-blue));
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  animation: fadeInBanner 0.2s ease-out;
+}
+
+@keyframes fadeInBanner {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pipeline-detail-title {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--pipeline-accent, var(--accent-blue));
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pipeline-detail-text {
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --- 3. Crazy Dynamic Simulator HUD Enhancements --- */
+
+/* Interactive Cybernetic Scanline Container */
+.cyber-hud-screen {
+  position: relative;
+  overflow: hidden;
+  background-color: #0d0d0d;
+}
+
+.cyber-hud-screen::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  z-index: 2;
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+/* Pulsing Beacon Keyframe */
+@keyframes pulseBeacon {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px currentColor);
+  }
+}
+
+/* Radar Sweep Keyframe */
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Interactive Bento Card Hover Elevation */
+.bento-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* Custom Cyber Range Input Slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #222;
+  height: 4px;
+  border-radius: 2px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #FFD83D;
+  cursor: pointer;
+  box-shadow: 0 0 8px #FFD83D;
+  transition: transform 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+}
+

@@ -15,12 +15,12 @@ export const RecruiterDashboard: React.FC<RecruiterDashboardProps> = ({ onClose,
 
   const spotlightProjects: Project[] = (() => {
     if (roleFilter === 'SDE') {
-      return PROJECTS.filter(p => ['food-safe', 'orchestrix', 'space-chatbot'].includes(p.id));
+      return PROJECTS.filter(p => ['silent-alarm', 'resumepilot-ai', 'food-safe', 'roadcare-ai'].includes(p.id));
     }
     if (roleFilter === 'AI') {
-      return PROJECTS.filter(p => ['road-damage', 'ai-clone', 'orchestrix'].includes(p.id));
+      return PROJECTS.filter(p => ['roadcare-ai', 'silent-alarm', 'sonic-fingerprints', 'resumepilot-ai'].includes(p.id));
     }
-    return PROJECTS.filter(p => ['road-damage', 'orchestrix', 'food-safe'].includes(p.id));
+    return PROJECTS;
   })();
 
   return (

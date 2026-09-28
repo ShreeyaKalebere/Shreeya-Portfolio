@@ -36,17 +36,17 @@ function buildPdf() {
     { text: "Databases & Tools: MongoDB, PostgreSQL, SQL, Docker, FastAPI", size: 9.5, y: 452 },
 
     // SECTION: FEATURED PROJECTS
-    { text: "KEY ENGINEERING & RESEARCH PROJECTS", size: 12, bold: true, y: 430 },
-    { text: "Food Safe - Full-Stack / AI Food Safety & OCR Platform (MERN, OCR, AI)", size: 10, bold: true, y: 414 },
-    { text: "- Developed full-stack food information and label analysis platform assessing ingredient safety transparency.", size: 9, y: 402 },
-    { text: "Orchestrix AI Agent - Autonomous Intelligent Agent System (Python, FastAPI)", size: 10, bold: true, y: 386 },
-    { text: "- Structured cognitive reasoning pipeline: Input -> Agent -> Reasoning / Workflow -> Action -> Output.", size: 9, y: 374 },
-    { text: "Pothole & Road Distress Detection - Computer Vision Research (YOLO, OpenCV, Python)", size: 10, bold: true, y: 358 },
-    { text: "- Active research on Pothole-600 dataset evaluating road crack anomalies and Low/Med/High severity scoring.", size: 9, y: 346 },
-    { text: "AI Space Information Chatbot - Celestial Telemetry Explorer (Python, FastAPI)", size: 10, bold: true, y: 330 },
-    { text: "- Interactive terminal interface delivering astronomical telemetry, spacecraft metrics, and planetary data.", size: 9, y: 318 },
-    { text: "MultiRecon - Multi-Modal Medical Imaging Research Concept (MONAI, PyTorch, YOLO, FastAPI, Docker)", size: 10, bold: true, y: 302 },
-    { text: "- Academic research exploring volumetric segmentation across X-ray, MRI, and CT imaging formats (Non-clinical).", size: 9, y: 290 },
+    { text: "KEY ENGINEERING & RESEARCH PROJECTS", size: 12, bold: true, y: 440 },
+    { text: "Silent Alarm - Discreet Wellness & Assistance Platform (React, Node.js, NLP, Express, MongoDB)", size: 9.5, bold: true, y: 426 },
+    { text: "- Engineered browser-based discreet wellness platform with gentle nudges and privacy-first consent boundaries.", size: 8.5, y: 414 },
+    { text: "Resume Maker & Enhancer - ATS Document & Scoring Engine (React, Node.js, TypeScript, PDF Engine)", size: 9.5, bold: true, y: 398 },
+    { text: "- Created real-time ATS optimization system parsing resume ASTs and generating standardized vector PDFs.", size: 8.5, y: 386 },
+    { text: "Sonar Fingerprint - Acoustic Signal Classification (Python, PyTorch, SciPy, FFT Spectrograms)", size: 9.5, bold: true, y: 370 },
+    { text: "- Signal processing pipeline converting sonar hydrophone echoes to 2D spectrograms for acoustic classification.", size: 8.5, y: 358 },
+    { text: "Pothole & Road Distress Detection - Computer Vision Research (YOLO, OpenCV, PyTorch, Python)", size: 9.5, bold: true, y: 342 },
+    { text: "- Active research on Pothole-600 dataset evaluating road crack anomalies and multi-class severity scoring.", size: 8.5, y: 330 },
+    { text: "Food Safe - Full-Stack Food Safety & Label OCR Platform (React, Node.js, Express, MongoDB, OCR)", size: 9.5, bold: true, y: 314 },
+    { text: "- Developed centralized MERN web application parsing ingredient text to catalog food safety records.", size: 8.5, y: 302 },
 
     // SECTION: HONORS & ACHIEVEMENTS
     { text: "HONORS & LEADERSHIP", size: 12, bold: true, y: 268 },

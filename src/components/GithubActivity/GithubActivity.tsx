@@ -16,6 +16,16 @@ interface Repo {
 const FALLBACK_REPOS: Repo[] = [
   {
     id: 1,
+    name: "Silent-Alarm",
+    html_url: "https://github.com/ShreeyaKalebere",
+    description: "Discreet psychological wellness and silent distress support web platform with ephemeral session states.",
+    language: "JavaScript",
+    stargazers_count: 9,
+    forks_count: 2,
+    updated_at: "2025-03-20T00:00:00Z"
+  },
+  {
+    id: 2,
     name: "Road-Damage-and-Pothole-Detection",
     html_url: "https://github.com/ShreeyaKalebere",
     description: "Computer vision pipeline for automated road defect and fracture detection using YOLOv8 & OpenCV.",
@@ -25,34 +35,34 @@ const FALLBACK_REPOS: Repo[] = [
     updated_at: "2025-02-15T00:00:00Z"
   },
   {
-    id: 2,
-    name: "Orchestrix",
+    id: 3,
+    name: "Resume-Maker-and-Enhancer",
     html_url: "https://github.com/ShreeyaKalebere",
-    description: "Distributed workflow orchestration engine with modular cognitive task execution and state monitoring.",
+    description: "ATS resume parser, keyword scoring engine, and reactive vector PDF generator.",
+    language: "TypeScript",
+    stargazers_count: 7,
+    forks_count: 1,
+    updated_at: "2025-03-10T00:00:00Z"
+  },
+  {
+    id: 4,
+    name: "Sonar-Fingerprint",
+    html_url: "https://github.com/ShreeyaKalebere",
+    description: "Acoustic signature classification extracting FFT spectrograms and spectral feature vectors from underwater sonar echoes.",
     language: "Python",
     stargazers_count: 6,
     forks_count: 1,
-    updated_at: "2025-01-20T00:00:00Z"
+    updated_at: "2025-02-28T00:00:00Z"
   },
   {
-    id: 3,
+    id: 5,
     name: "Food-Safe",
     html_url: "https://github.com/ShreeyaKalebere",
-    description: "Full-stack web application for automated food safety compliance tracking and inventory risk monitoring.",
+    description: "Full-stack web application for food safety transparency, additive database cross-referencing, and OCR label parsing.",
     language: "JavaScript",
     stargazers_count: 5,
     forks_count: 1,
     updated_at: "2024-11-10T00:00:00Z"
-  },
-  {
-    id: 4,
-    name: "AI-Clone",
-    html_url: "https://github.com/ShreeyaKalebere",
-    description: "Multimodal AI clone simulating voice synthesis and grounded semantic context matching from personal records.",
-    language: "Python",
-    stargazers_count: 7,
-    forks_count: 2,
-    updated_at: "2025-03-01T00:00:00Z"
   }
 ];
 

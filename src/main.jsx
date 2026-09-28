@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './styles/brutalism.css';
 import './styles/index.css';
+import './styles/dynamic.css';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {

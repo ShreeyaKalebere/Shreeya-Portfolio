@@ -18,50 +18,50 @@ const STACK_CATEGORIES: StackCategory[] = [
     name: "LANGUAGES",
     tag: "CORE PARADIGMS",
     skills: [
-      { name: "Python", usedIn: ["Road Damage & Pothole Detection", "Orchestrix", "AI Space Information Chatbot", "AI Clone"] },
-      { name: "C++", usedIn: ["Data Structures & Algorithms", "High-Performance Systems", "Algorithmic Problem Solving"] },
+      { name: "Python", usedIn: ["RoadCare AI", "Silent Alarm", "Sonic Fingerprints", "ResumePilot AI"] },
       { name: "Java", usedIn: ["Object-Oriented Programming", "Enterprise Systems", "Core Computing Curricula"] },
-      { name: "JavaScript (ES6+)", usedIn: ["Food Safe", "Portfolio Workstation", "Full-Stack Architecture"] },
-      { name: "TypeScript", usedIn: ["Portfolio Web App", "Strongly Typed Client Flows"] },
-      { name: "SQL", usedIn: ["Database Management Systems", "Healthcare Data Workflows", "Relational Schemas"] }
+      { name: "C++", usedIn: ["Data Structures & Algorithms", "High-Performance Systems", "Algorithmic Problem Solving"] },
+      { name: "JavaScript (ES6+)", usedIn: ["Silent Alarm", "Sonic Fingerprints", "Food Safe", "Portfolio Web App"] },
+      { name: "TypeScript", usedIn: ["ResumePilot AI", "Portfolio Web App", "Strongly Typed Client Flows"] },
+      { name: "SQL", usedIn: ["Database Management Systems", "Relational Schemas", "ACID Transactions"] }
     ]
   },
   {
     id: "fullstack",
-    name: "FULL STACK",
-    tag: "MERN & WEB ARCHITECTURE",
+    name: "FULL STACK & WEB",
+    tag: "REACT 19 & MERN ARCHITECTURE",
     skills: [
-      { name: "React", usedIn: ["Food Safe", "Portfolio Web App", "Interactive Dashboards"] },
-      { name: "Node.js", usedIn: ["Food Safe", "Microservice Backends", "API Routing"] },
-      { name: "Express.js", usedIn: ["Food Safe", "REST Endpoints", "Middleware Pipeline"] },
-      { name: "MongoDB", usedIn: ["Food Safe", "Document Storage", "Schema Aggregation"] },
-      { name: "HTML5 & CSS3", usedIn: ["Responsive Interfaces", "Design Systems", "Accessible Semantics"] },
-      { name: "REST APIs", usedIn: ["Food Safe", "Orchestrix", "Client-Server Contract"] }
+      { name: "React 19", usedIn: ["Silent Alarm", "ResumePilot AI", "Sonic Fingerprints", "Food Safe"] },
+      { name: "Node.js & Express", usedIn: ["Silent Alarm", "ResumePilot AI", "Sonic Fingerprints", "Food Safe"] },
+      { name: "MongoDB", usedIn: ["Silent Alarm", "RoadCare AI", "Food Safe", "BSON Aggregations"] },
+      { name: "RESTful APIs", usedIn: ["Silent Alarm", "ResumePilot AI", "RoadCare AI", "Food Safe"] },
+      { name: "Socket.io", usedIn: ["Silent Alarm", "Real-Time Telemetry Streaming"] },
+      { name: "Tailwind CSS", usedIn: ["Silent Alarm", "ResumePilot AI", "Responsive Layouts"] }
     ]
   },
   {
     id: "ai-vision",
-    name: "AI & COMPUTER VISION",
-    tag: "INFERENCE & TENSOR FLOWS",
+    name: "AI / ML & COMPUTER VISION",
+    tag: "INFERENCE & ACOUSTIC TENSORS",
     skills: [
-      { name: "YOLO (v8)", usedIn: ["Road Damage & Pothole Detection", "Object Localization"] },
-      { name: "OpenCV", usedIn: ["Road Damage & Pothole Detection", "Computer Vision Pipelines", "Feature Extraction"] },
-      { name: "PyTorch", usedIn: ["Deep Learning Models", "Tensor Calculations", "Neural Pipelines"] },
-      { name: "TensorFlow / Keras", usedIn: ["Machine Learning", "Model Architectures"] },
-      { name: "MediaPipe", usedIn: ["Computer Vision Research", "Skeletal Tracking", "3D Keypoints"] },
-      { name: "OCR / Tesseract", usedIn: ["Food Safe", "Ingredient Label Parsing"] }
+      { name: "Ultralytics YOLO11", usedIn: ["RoadCare AI", "Edge Vision Object Localization"] },
+      { name: "PyTorch", usedIn: ["Silent Alarm", "RoadCare AI", "Sonic Fingerprints", "LSTM Autoencoders"] },
+      { name: "OpenCV", usedIn: ["RoadCare AI", "Spatial Filtering", "CLAHE Enhancement"] },
+      { name: "Scikit-Learn", usedIn: ["Silent Alarm", "Isolation Forest Anomaly Detection"] },
+      { name: "ChromaDB Vector DB", usedIn: ["Sonic Fingerprints", "ResumePilot AI", "Vector Embeddings"] },
+      { name: "ByteTrack & Librosa", usedIn: ["RoadCare AI", "Sonic Fingerprints", "Acoustic Signal Processing"] }
     ]
   },
   {
     id: "systems-tools",
-    name: "SYSTEMS & TOOLS",
-    tag: "INFRASTRUCTURE & ORCHESTRATION",
+    name: "DEVOPS, TOOLS & STORAGE",
+    tag: "CONTAINERS & CLOUD MICROSERVICES",
     skills: [
+      { name: "FastAPI", usedIn: ["RoadCare AI", "Silent Alarm", "Sonic Fingerprints", "ResumePilot AI"] },
+      { name: "Docker", usedIn: ["Sonic Fingerprints", "Containerization", "Reproducible Environments"] },
       { name: "Git & GitHub", usedIn: ["Version Control", "Open Source", "Team Collaboration"] },
-      { name: "Docker", usedIn: ["Containerization", "Reproducible Environments"] },
-      { name: "FastAPI", usedIn: ["Orchestrix", "AI Space Information Chatbot", "High-Throughput APIs"] },
-      { name: "Streamlit", usedIn: ["Rapid AI Prototyping", "Data Dashboards"] },
-      { name: "Linux / Bash", usedIn: ["CLI Workstation", "Server Deployment", "Process Automation"] }
+      { name: "Postman & Vercel", usedIn: ["API Testing", "Serverless Deployment", "Edge Functions"] },
+      { name: "Linux / CLI", usedIn: ["CLI Workstation", "Server Deployment", "Process Automation"] }
     ]
   }
 ];

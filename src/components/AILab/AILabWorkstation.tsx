@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PROFILE } from '../../data/profile';
+import DataflowPipeline from '../Projects/DataflowPipeline';
 
 interface AIPipeline {
   id: string;
@@ -15,53 +16,53 @@ interface AIPipeline {
 const AI_SYSTEMS: AIPipeline[] = [
   {
     id: "cv-yolo",
-    category: "COMPUTER VISION & OBJECT DETECTION",
-    title: "YOLOv8 Road Distress & Pothole Segmentation",
-    architecture: ["DASHCAM INPUT", "YOLOv8 BACKBONE", "FEATURE PYRAMID", "BOUNDING MASK", "DEFECT SEVERITY"],
-    description: "Automated road fracture and surface anomaly localization for vehicular edge computing, analyzing roadway distress across dynamic lighting conditions.",
-    technologies: ["YOLOv8", "OpenCV", "Python", "Roboflow"],
-    associatedBuild: "Road Damage & Pothole Detection",
-    telemetry: "28ms Inference Latency (Edge Benchmark)"
+    category: "COMPUTER VISION & EDGE TRIAGE",
+    title: "Ultralytics YOLO11 RoadCare AI & ByteTrack Triage",
+    architecture: ["ROAD VIDEO STREAM", "YOLO11 DETECTOR", "BYTETRACK PERSISTENCE", "LEAFLET TRIAGE HUD"],
+    description: "Real-time edge distress classification and tracking on the RoadDamage20K dataset with persistent defect IDs and GPS telemetry.",
+    technologies: ["Ultralytics YOLO11", "ByteTrack", "OpenCV", "PyTorch", "FastAPI"],
+    associatedBuild: "RoadCare AI",
+    telemetry: "Sub-30ms Inference Latency"
   },
   {
-    id: "ai-agents",
-    category: "AI AGENTS & WORKFLOW ORCHESTRATION",
-    title: "Orchestrix Cognitive Agent Engine",
-    architecture: ["TASK SPECIFICATION", "INTENT DECOMPOSITION", "TOOL ROUTING", "REASONING LOOP", "VERIFIED PAYLOAD"],
-    description: "Multi-step autonomous workflow coordinator that evaluates computational requirements, dynamically dispatches execution tools, and monitors process state.",
-    technologies: ["Python", "FastAPI", "Agent Loops", "Task Queues"],
-    associatedBuild: "Orchestrix",
-    telemetry: "Modular Asynchronous Dispatch"
+    id: "silent-assist",
+    category: "MENTAL HEALTH AI & BEHAVIORAL KINEMATICS",
+    title: "Keystroke Telemetry & LSTM Autoencoder Anomaly Detection",
+    architecture: ["KEYSTROKE KINEMATICS", "ISOLATION FOREST", "LSTM AUTOENCODER", "ZERO-KNOWLEDGE NUDGE"],
+    description: "Zero-knowledge chat system detecting micro-shifts in typing cadence (dwell time, flight time, pauses) to identify student distress.",
+    technologies: ["PyTorch LSTM", "Scikit-Learn (Isolation Forest)", "React 19", "Socket.io"],
+    associatedBuild: "Silent Alarm",
+    telemetry: "Zero-Knowledge Telemetry"
   },
   {
-    id: "space-telemetry",
-    category: "SPACE TELEMETRY & CELESTIAL QUERYING",
-    title: "Orbital Mechanics & Mission Telemetry Querying",
-    architecture: ["CELESTIAL QUERY", "NLP INTENT ENGINE", "ORBITAL TELEMETRY", "MISSION INTEL"],
-    description: "Interactive celestial terminal parsing natural language queries into structured mission parameters, planetary telemetry, and satellite orbits.",
-    technologies: ["Python", "FastAPI", "NLP", "Celestial Telemetry"],
-    associatedBuild: "AI Space Information Chatbot",
-    telemetry: "Real-time Telemetry Normalization"
+    id: "sonar-sig",
+    category: "ACOUSTIC AI & HIGH-DIMENSIONAL RETRIEVAL",
+    title: "Sonic Fingerprints & Planetary Acoustic Vector Search",
+    architecture: ["ACOUSTIC AUDIO STREAM", "SPECTRAL EXTRACTION", "CHROMADB EMBEDDING", "PATTERN RECOGNITION"],
+    description: "Dual-mode acoustic intelligence platform matching physical room impulse responses and querying NASA celestial radio frequency sonifications.",
+    technologies: ["Librosa", "ChromaDB", "Python FastAPI", "Web Audio API", "PyTorch"],
+    associatedBuild: "Sonic Fingerprints & Solar System Acoustic Explorer",
+    telemetry: "ChromaDB Vector Matching"
   },
   {
-    id: "nlp-grounding",
-    category: "NLP & KNOWLEDGE GROUNDING",
-    title: "Context-Grounded Conversational Retrieval",
-    architecture: ["NATURAL QUERY", "SEMANTIC EMBEDDINGS", "LOCAL RECORD RETRIEVAL", "BOUNDARY CHECK", "GROUNDED ANSWER"],
-    description: "Persona and knowledge-retrieval pipeline constrained to verified documents to eliminate hallucinations and preserve technical accuracy.",
-    technologies: ["Python", "Vector Retrieval", "FastAPI", "NLP"],
-    associatedBuild: "AI Clone & Space Info Bot",
-    telemetry: "Deterministic Hallucination Boundary"
+    id: "resume-nlp",
+    category: "AGENTIC AI & ATS DOCUMENT PROCESSING",
+    title: "ResumePilot Agentic AI & ATS Verification Engine",
+    architecture: ["MASTER RESUME AST", "AGENTIC MATCHER", "TRUTH VALIDATOR", "ATS EXPORT ENGINE"],
+    description: "Agentic matching engine tailoring resumes to target job postings with anti-hallucination source grounding and ATS score validation.",
+    technologies: ["React", "TypeScript", "Python FastAPI", "ChromaDB", "Gemini / OpenAI"],
+    associatedBuild: "ResumePilot AI",
+    telemetry: "Weighted ATS Scoring"
   },
   {
     id: "ocr-parsing",
-    category: "OCR & REGULATORY PARSING",
-    title: "Automated Ingredient Safety & Label Parser",
-    architecture: ["PACKAGING IMAGE", "TEXT LOCALIZATION", "TESSERACT OCR", "REGEX ENTITY PARSER", "SAFETY SCORE"],
-    description: "Optical character recognition pipeline designed to extract chemical additive codes, allergen disclosures, and regulatory standards from consumer product packaging.",
-    technologies: ["OCR", "Tesseract", "Regex Engine", "JavaScript"],
+    category: "MERN & REGULATORY PARSING",
+    title: "Food Safe Additive & Chemical Hazard Parser",
+    architecture: ["PACKAGED FOOD DATA", "OCR NORMALIZER", "TOXICOLOGY MATRIX", "SAFETY HEALTH INDEX"],
+    description: "Decoupled MERN platform parsing packaging labels with Tesseract OCR to cross-reference international additive toxicity indices.",
+    technologies: ["React", "Node.js", "Express.js", "MongoDB", "OCR"],
     associatedBuild: "Food Safe",
-    telemetry: "Multi-Lingual Packaging Parsing"
+    telemetry: "Sub-Second MongoDB Indexing"
   }
 ];
 
@@ -101,13 +102,13 @@ export const AILabWorkstation: React.FC = () => {
         break;
       case 'skills':
         newLogs.push({
-          text: "STACK: Python, C++, Java, React, TypeScript, YOLOv8, OpenCV, MediaPipe, Node.js, Git, Docker.",
+          text: "STACK: Python, Java, C++, React 19, Node.js, Express, PyTorch, Ultralytics YOLO11, OpenCV, ChromaDB, Librosa, ByteTrack, MongoDB, Docker, FastAPI.",
           isOutput: true
         });
         break;
       case 'projects':
         newLogs.push({
-          text: "BUILDS: Road Damage YOLO, Orchestrix, Food Safe, AI Clone, Space Information Bot, 3D Printing Startup Idea.",
+          text: "VERIFIED BUILDS: RoadCare AI (YOLO11), Silent Alarm (Keystroke AI), Sonic Fingerprints (ChromaDB), ResumePilot AI (ATS Agent), Food Safe (MERN & OCR).",
           isOutput: true
         });
         break;
@@ -192,15 +193,28 @@ export const AILabWorkstation: React.FC = () => {
                     {sys.description}
                   </p>
 
-                  {/* Flow Strip */}
-                  <div className="dataflow-strip" style={{ margin: '6px 0 10px' }}>
-                    {sys.architecture.map((node, nIdx) => (
-                      <React.Fragment key={nIdx}>
-                        <span className="dataflow-node">{node}</span>
-                        {nIdx < sys.architecture.length - 1 && <span className="dataflow-arrow">→</span>}
-                      </React.Fragment>
-                    ))}
-                  </div>
+                  {/* Dynamic Pipeline Flow */}
+                  {isSelected ? (
+                    <DataflowPipeline
+                      projectId={
+                        sys.id === 'cv-yolo' ? 'roadcare-ai' :
+                        sys.id === 'sonar-sig' ? 'sonic-fingerprints' :
+                        sys.id === 'silent-assist' ? 'silent-alarm' :
+                        sys.id === 'resume-nlp' ? 'resumepilot-ai' : 'food-safe'
+                      }
+                      fallbackSteps={sys.architecture}
+                      accent="var(--accent-blue)"
+                    />
+                  ) : (
+                    <div className="dataflow-strip" style={{ margin: '6px 0 10px' }}>
+                      {sys.architecture.map((node, nIdx) => (
+                        <React.Fragment key={nIdx}>
+                          <span className="dataflow-node">{node}</span>
+                          {nIdx < sys.architecture.length - 1 && <span className="dataflow-arrow">→</span>}
+                        </React.Fragment>
+                      ))}
+                    </div>
+                  )}
 
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '6px' }}>
                     <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
