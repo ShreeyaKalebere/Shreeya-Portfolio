@@ -266,9 +266,31 @@ export const RecruiterDashboard: React.FC<RecruiterDashboardProps> = ({ onClose,
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {ACHIEVEMENTS.slice(0, 6).map(a => (
-              <div key={a.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '8px', borderBottom: '1px solid var(--border-color)' }}>
+              <div key={a.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '8px', borderBottom: '1px solid var(--border-color)', flexWrap: 'wrap', gap: '8px' }}>
                 <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)' }}>{a.title}</span>
-                <span className="swiss-badge swiss-badge-green" style={{ fontSize: '0.68rem' }}>{a.badge}</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  {a.liveDemo && (
+                    <a
+                      href={a.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="swiss-badge"
+                      style={{
+                        fontSize: '0.65rem',
+                        color: 'var(--accent-blue)',
+                        borderColor: 'var(--accent-blue)',
+                        textDecoration: 'none',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px'
+                      }}
+                    >
+                      <span>LIVE APP</span>
+                      <ExternalLink size={10} />
+                    </a>
+                  )}
+                  <span className="swiss-badge swiss-badge-green" style={{ fontSize: '0.68rem' }}>{a.badge}</span>
+                </div>
               </div>
             ))}
           </div>

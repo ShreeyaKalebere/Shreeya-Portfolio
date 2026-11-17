@@ -13,6 +13,12 @@ export type Achievement = {
   status?: string;
   rarity?: string;
   xp?: string;
+  projectName?: string;
+  liveDemo?: string;
+  github?: string;
+  prize?: string;
+  venue?: string;
+  date?: string;
 };
 
 export const ACHIEVEMENTS: Achievement[] = [
@@ -37,13 +43,18 @@ export const ACHIEVEMENTS: Achievement[] = [
     title: "ANVATION 2026 — 1st Prize Winner",
     badge: "1st Prize (₹25,000) • AI/ML Track",
     category: "Hackathon & Prototyping",
-    description: "Championed 1st Prize among competitive engineering teams in the 24-hour national ANVATION 2026 Hackathon organized by K. S. School of Engineering and Management, Bengaluru (8–9 October 2026).",
-    details: "Engineered and pitched an end-to-end Artificial Intelligence & Machine Learning solution within a high-intensity 24-hour hackathon, evaluated on algorithmic robustness, innovation, and real-time execution.",
+    projectName: "Rail Marga",
+    liveDemo: "https://rail-marga-server.vercel.app/",
+    prize: "1st Prize — ₹25,000",
+    venue: "K. S. School of Engineering and Management, Bengaluru",
+    date: "8–9 October 2026",
+    description: "Championed 1st Prize (₹25,000) for 'Rail Marga', an end-to-end AI/ML railway assistance platform engineered during the 24-hour national ANVATION 2026 Hackathon at KSSEM Bengaluru.",
+    details: "Engineered, deployed, and defended 'Rail Marga' under high-intensity 24-hour constraints, evaluated on algorithmic robustness, production readiness, and real-time inference.",
     accent: "#FFD83D",
     iconType: "trophy",
     unlockedStatus: "ACHIEVEMENT UNLOCKED // 1ST PRIZE (₹25K)",
     voxelIcon: "Trophy",
-    shortDescription: "Secured 1st Prize (₹25,000) in the 24-hour national AI/ML Hackathon at KSSEM, Bengaluru.",
+    shortDescription: "Secured 1st Prize (₹25,000) for Rail Marga in the 24-hour national AI/ML Hackathon at KSSEM, Bengaluru.",
     status: "QUEST COMPLETED",
     rarity: "legendary",
     xp: "+1500 XP"
@@ -53,7 +64,10 @@ export const ACHIEVEMENTS: Achievement[] = [
     title: "Triwizathon — Best UI/UX Design",
     badge: "Best UI/UX Award • 3rd Prize",
     category: "Hackathon & Prototyping",
-    description: "Awarded Best UI/UX Design (3rd Prize) in Triwizathon for 'Sahi Supply', an interactive 3D logistics and supply-chain web experience built with Three.js and custom Blender models.",
+    projectName: "Sahi Supply",
+    liveDemo: "https://sahisupply.onrender.com/",
+    prize: "Best UI/UX Design (3rd Prize)",
+    description: "Awarded Best UI/UX Design (3rd Prize) in Triwizathon for 'Sahi Supply', an interactive 3D logistics and supply-chain platform built with custom Blender 3D models and Three.js WebGL.",
     details: "Modeled custom 3D spatial logistics assets in Blender and implemented interactive WebGL rendering pipelines using Three.js, delivering high-fidelity interactive user experiences.",
     accent: "#A855F7",
     iconType: "sparkles",
@@ -69,6 +83,8 @@ export const ACHIEVEMENTS: Achievement[] = [
     title: "Tech Hunt — 2nd Runner-up",
     badge: "2nd Runner-up • Technical Challenge",
     category: "Hackathon & Prototyping",
+    projectName: "Tech Hunt Challenge",
+    prize: "2nd Runner-up",
     description: "Secured 2nd Runner-up across a multi-stage technical competition evaluating quantitative aptitude, core computer science / coding MCQs, and rapid algorithmic technical hunt rounds.",
     details: "Cleared rigorous Round 1 evaluating quantitative aptitude and core programming MCQs, advancing to Round 2 technical hunt requiring rapid algorithmic problem solving and deductive debugging.",
     accent: "#38BDF8",
