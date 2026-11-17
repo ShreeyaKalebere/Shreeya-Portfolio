@@ -262,10 +262,10 @@ export const RecruiterDashboard: React.FC<RecruiterDashboardProps> = ({ onClose,
         {/* Honors Summary */}
         <div className="bento-card" style={{ padding: '20px' }}>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-dim)', textTransform: 'uppercase', marginBottom: '12px' }}>
-            ACADEMIC HONORS & RECOGNITION
+            ACADEMIC HONORS & HACKATHON RECOGNITION
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            {ACHIEVEMENTS.slice(0, 4).map(a => (
+            {ACHIEVEMENTS.slice(0, 6).map(a => (
               <div key={a.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '8px', borderBottom: '1px solid var(--border-color)' }}>
                 <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)' }}>{a.title}</span>
                 <span className="swiss-badge swiss-badge-green" style={{ fontSize: '0.68rem' }}>{a.badge}</span>

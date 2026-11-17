@@ -156,9 +156,9 @@ export const TECHNOLOGIES: Technology[] = [
   },
   {
     id: "threejs",
-    name: "Three.js",
+    name: "Three.js & Blender",
     category: "Frontend",
     accent: "#A855F7",
-    usedIn: ["Portfolio 3D Visuals", "Interactive Spatial Web"]
+    usedIn: ["Sahi Supply (Triwizathon Best UI Award)", "Portfolio 3D Visuals", "Interactive Spatial Web"]
   }
 ];

@@ -59,10 +59,10 @@ export const Achievements: React.FC = () => {
           })}
         </div>
 
-        {/* Bento Grid: 7 Verified Milestones */}
+        {/* Bento Grid: Verified Milestones */}
         <div className="bento-grid">
           {filteredAchievements.map((item: Achievement, idx) => {
-            const isStandout = item.id === 'academic-standing' || item.id === 'eureka-hackathon';
+            const isStandout = item.id === 'academic-standing' || item.id === 'anvation-hackathon-2026' || item.id === 'eureka-hackathon' || item.id === 'triwizathon-best-ui';
             const colSpan = isStandout ? 'col-span-6' : 'col-span-4';
 
             return (

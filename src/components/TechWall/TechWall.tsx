@@ -32,6 +32,7 @@ const STACK_CATEGORIES: StackCategory[] = [
     tag: "REACT 19 & MERN ARCHITECTURE",
     skills: [
       { name: "React 19", usedIn: ["Silent Alarm", "ResumePilot AI", "Sonic Fingerprints", "Food Safe"] },
+      { name: "Three.js & Blender", usedIn: ["Sahi Supply (Triwizathon Best UI)", "Interactive 3D WebGL", "Spatial Telemetry"] },
       { name: "Node.js & Express", usedIn: ["Silent Alarm", "ResumePilot AI", "Sonic Fingerprints", "Food Safe"] },
       { name: "MongoDB", usedIn: ["Silent Alarm", "RoadCare AI", "Food Safe", "BSON Aggregations"] },
       { name: "RESTful APIs", usedIn: ["Silent Alarm", "ResumePilot AI", "RoadCare AI", "Food Safe"] },
